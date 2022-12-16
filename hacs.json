@@ -1,4 +1,5 @@
 {
     "name": "Bouncie",
-    "country": "US"
+    "country": "US",
+    "homeassistant": "2022.11.0"
 }
