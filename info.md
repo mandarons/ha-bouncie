@@ -30,7 +30,7 @@ Platform | Description
 
 ***
 
-[integration_blueprint]: https://github.com/mandarons/ha-bouncie
+[bouncie]: https://github.com/mandarons/ha-bouncie
 [buymecoffee]: https://www.buymeacoffee.com/mandarons
 [buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
 [commits-shield]: https://img.shields.io/github/commit-activity/y/mandarons/ha-bouncie.svg?style=for-the-badge

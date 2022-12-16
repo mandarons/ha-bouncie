@@ -9,10 +9,6 @@ _Component to integrate with [bouncie][bouncie]._
 
 **This component will set up the following platforms.**
 
-Platform | Description
--- | --
-`sensor` | Show info from blueprint API.
-
 ## Installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
@@ -21,7 +17,7 @@ Platform | Description
 4. Download _all_ the files from the `custom_components/bouncie/` directory (folder) in this repository.
 5. Place the files you downloaded in the new directory (folder) you created.
 6. Restart Home Assistant
-7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Integration blueprint"
+7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "bouncie"
 
 Using your HA configuration directory (folder) as a starting point you should now also have this:
 

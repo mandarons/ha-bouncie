@@ -1,4 +1,4 @@
-"""Global fixtures for integration_blueprint integration."""
+"""Global fixtures for bouncie integration."""
 import pytest
 from unittest.mock import patch
 
