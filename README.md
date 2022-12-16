@@ -1,9 +1,12 @@
 # bouncie
-
+[![CI - Main][build-shield]][build]
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
+[![Discord][discord-badge]][discord]
+<a href="https://www.buymeacoffee.com/mandarons" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 150px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+:love_you_gesture: ***Please star this repository if you end up using this integration. If it improved your life in any way, consider donating for my effort using 'Buy Me a Coffee' button above. It will help me continue supporting this product.*** :pray:
 
 _Component to integrate with [bouncie][bouncie]._
 
@@ -67,16 +70,15 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 ***
 
-[bouncie]: https://github.com/mandarons/ha-bouncie
-[buymecoffee]: https://www.buymeacoffee.com/mandarons
-[buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
-[commits-shield]: https://img.shields.io/github/commit-activity/y/mandarons/ha-bouncie.svg?style=for-the-badge
-[commits]: https://github.com/mandarons/ha-bouncie/commits/main
+[build]: https://github.com/mandarons/bounciepy/actions/workflows/ci-main-test-coverage.yml
+[build-shield]: https://github.com/mandarons/bounciepy/actions/workflows/ci-main-test-coverage.yml/badge.svg
 [hacs]: https://github.com/custom-components/hacs
-[hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
-[forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
-[forum]: https://community.home-assistant.io/
-[license-shield]: https://img.shields.io/github/license/mandarons/ha-bouncie.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-mandarons-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/mandarons/ha-bouncie.svg?style=for-the-badge
+[hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg
+[license-shield]: https://img.shields.io/github/license/mandarons/ha-bouncie.svg
+[releases-shield]: https://img.shields.io/github/v/release/mandarons/ha-bouncie
 [releases]: https://github.com/mandarons/ha-bouncie/releases
+[discord]: https://discord.gg/HfAXY2ykhp
+[discord-badge]: https://img.shields.io/discord/871555550444408883
+
+
+
