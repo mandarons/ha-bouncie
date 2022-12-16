@@ -1,0 +1,23 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "client_id": "client_id",
+                    "client_secret": "client_secret",
+                    "code": "authorization_code",
+                    "redirect_uri": "redirect_uri"
+                },
+                "description": "If you need help with configuration, visit https://github.com/mandarons/ha-bouncie"
+            }
+        }
+    }
+}
