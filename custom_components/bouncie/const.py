@@ -1,40 +1,58 @@
-"""Constants for integration_blueprint."""
-# Base component constants
-NAME = "Integration blueprint"
-DOMAIN = "integration_blueprint"
-DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "0.0.1"
-ATTRIBUTION = "Data provided by http://jsonplaceholder.typicode.com/"
-ISSUE_URL = "https://github.com/custom-components/integration_blueprint/issues"
+"""Constants for the bouncie integration."""
 
-# Icons
-ICON = "mdi:format-quote-close"
+import logging
 
-# Device classes
-BINARY_SENSOR_DEVICE_CLASS = "connectivity"
+DOMAIN = "bouncie"
+LOGGER = logging.getLogger(__name__)
 
-# Platforms
-BINARY_SENSOR = "binary_sensor"
-SENSOR = "sensor"
-SWITCH = "switch"
-PLATFORMS = [BINARY_SENSOR, SENSOR, SWITCH]
+CONF_REDIRECT_URI = "redirect_uri"
+CONF_CODE = "code"
 
+VEHICLE_MODEL_KEY = "model"
+VEHICLE_MAKE_KEY = "make"
+VEHICLE_NAME_KEY = "name"
+VEHICLE_YEAR_KEY = "year"
+VEHICLE_STANDARD_ENGINE_KEY = "standardEngine"
+VEHICLE_VIN_KEY = "vin"
+VEHICLE_IMEI_KEY = "imei"
+VEHICLE_STATS_KEY = "stats"
+VEHICLE_LOCAL_TIMEZONE_KEY = "localTimeZone"
+VEHICLE_LAST_UPDATED_KEY = "lastUpdated"
+VEHICLE_ODOMETER_KEY = "odometer"
+VEHICLE_LOCATION_KEY = "location"
+VEHICLE_LATITUDE_KEY = "lat"
+VEHICLE_LONGITUDE_KEY = "lon"
+VEHICLE_HEADING_KEY = "heading"
+VEHICLE_ADDRESS_KEY = "address"
+VEHICLE_IS_RUNNING_KEY = "isRunning"
+VEHICLE_SPEED_KEY = "speed"
+VEHICLE_MIL_KEY = "mil"
+VEHICLE_MIL_LAST_UPDATED_KEY = "lastUpdated"
+VEHICLE_BATTERY_KEY = "battery"
+VEHICLE_BATTERY_STATUS_KEY = "status"
+VEHICLE_BATTERY_LAST_UPDATED_KEY = "lastUpdated"
+VEHICLE_NICKNAME_KEY = "nickName"
 
-# Configuration and options
-CONF_ENABLED = "enabled"
-CONF_USERNAME = "username"
-CONF_PASSWORD = "password"
+ATTR_VEHICLE_MODEL_MAKE_KEY = "model_make"
+ATTR_VEHICLE_MODEL_NAME_KEY = "model_name"
+ATTR_VEHICLE_MODEL_YEAR_KEY = "model_year"
+ATTR_VEHICLE_NICKNAME_KEY = "nickname"
+ATTR_VEHICLE_STANDARD_ENGINE_KEY = "standardengine"
+ATTR_VEHICLE_VIN_KEY = "vin"
+ATTR_VEHICLE_IMEI_KEY = "imei"
 
-# Defaults
-DEFAULT_NAME = DOMAIN
+ATTR_VEHICLE_STATS_LAST_UPDATED_KEY = "stats_last_updated"
+ATTR_VEHICLE_STATS_ODOMETER_KEY = "stats_odometer"
+ATTR_VEHICLE_STATS_LOCATION_LAT_KEY = "stats_location_lat"
+ATTR_VEHICLE_STATS_LOCATION_LON_KEY = "stats_location_lon"
+ATTR_VEHICLE_STATS_LOCATION_HEADING_KEY = "stats_location_heading"
+ATTR_VEHICLE_STATS_LOCATION_ADDRESS_KEY = "stats_location_address"
 
+ATTR_VEHICLE_FUEL_LEVEL_KEY = "fuellevel"
+ATTR_VEHICLE_SPEED_KEY = "speed"
 
-STARTUP_MESSAGE = f"""
--------------------------------------------------------------------
-{NAME}
-Version: {VERSION}
-This is a custom integration!
-If you have any issues with this you need to open an issue here:
-{ISSUE_URL}
--------------------------------------------------------------------
-"""
+ATTR_VEHICLE_MIL_KEY = "mil"
+ATTR_VEHICLE_MIL_LAST_UPDATED_KEY = "mil_lastupdated"
+
+ATTR_VEHICLE_BATTERY_STATUS_KEY = "battery_status"
+ATTR_VEHICLE_BATTERY_LAST_UPDATED_KEY = "battery_lastupdated"

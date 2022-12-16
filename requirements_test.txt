@@ -1,3 +1,2 @@
-aiohttp
 bounciepy
 pytest-homeassistant-custom-component
