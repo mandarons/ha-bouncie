@@ -13,11 +13,10 @@ _Component to integrate with [bouncie][bouncie]._
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
 2. If you do not have a `custom_components` directory (folder) there, you need to create it.
-3. In the `custom_components` directory (folder) create a new folder called `bouncie`.
-4. Download _all_ the files from the `custom_components/bouncie/` directory (folder) in this repository.
-5. Place the files you downloaded in the new directory (folder) you created.
-6. Restart Home Assistant
-7. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "bouncie"
+3. In the `custom_components` directory (folder) download `bouncie.zip` from https://github.com/mandarons/ha-bouncie/releases/latest/.
+4. Unzip `bouncie.zip` file in `custom_components` folder.
+5. Restart Home Assistant
+6. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "bouncie"
 
 Using your HA configuration directory (folder) as a starting point you should now also have this:
 
