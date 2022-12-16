@@ -5,7 +5,7 @@
   "documentation": "https://github.com/mandarons/ha-bouncie",
   "issue_tracker": "https://github.com/mandarons/ha-bouncie/issues",
   "requirements": [
-    "bounciepy==0.1.0"
+    "bounciepy==0.1.1"
   ],
   "codeowners": [
     "@mandarons"
