@@ -42,21 +42,24 @@ The `bouncie` integration uses the [Bouncie](https://www.bouncie.dev/) web servi
 
 To generate an Bouncie application credentials -
 
-1. Go to the [Bouncie Developer Page](https://bouncie.dev/login/) page
+1. Go to the [Bouncie Developer Page](https://bouncie.dev/) page
 2. Login with your `bouncie.com` credentials
 3. Click on `+ ADD APPLICATION` 
 4. Provide a `name` for application e.g. Home Assistant Integration
 5. Provide a unique `client_id` e.g. alphanumeric random string
 6. Provide redirect URL to be your Home Assistant URL
 7. Click on `SAVE`
-8. Visit https://auth.bouncie.com/dialog/authorize?response_type=code&<client_id>=&redirect_uri=<redirect_url> in a browser.
-9.  Follow the prompts to provide your application access to your account
-10. Copy the alphanumeric string after `<redirect URL provided above>?code=...` - this is your `authorization_code`
-11. Note down following values to enter in Home Assistant
+8. Click on the "Users & Devices" tab at the top of the page.
+9. Click on the "Authorize My Devices" blue button.
+10. Choose 'Yes' when prompted to authorize devices to your application.
+11. You should now see your account listed in the "Users & Devices" list.
+12. Next to your listed account, click the "Expand" arrow to see your "Auhtorization Code"
+14. Copy the alphanumeric listed under "Authorization Code" - this is your `authorization_code`
+15. Note down following values to enter in Home Assistant
     1.  Client ID 
     2.  Client Secret
     3.  Redirect URL
-    4.  Authorization code
+    4.  Authorization Code
 
 <div class="note">
 This integration currently uses REST API only with polling.
