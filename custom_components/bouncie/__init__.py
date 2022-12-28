@@ -10,7 +10,7 @@ from homeassistant.core import HomeAssistant, Config
 from .const import DOMAIN, LOGGER
 from .coordinator import BouncieDataUpdateCoordinator
 
-PLATFORMS: list[Platform] = [Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.DEVICE_TRACKER]
 
 
 async def async_setup(hass: HomeAssistant, config: Config):
