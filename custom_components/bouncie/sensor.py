@@ -129,8 +129,10 @@ async def async_setup_entry(
     coordinator = hass.data[const.DOMAIN][config_entry.entry_id]
     for vehicle_info in coordinator.data["vehicles"]:
         async_add_entities(
-            BouncieSensor(coordinator, description, vehicle_info)
-            for description in SENSORS
+            [
+                BouncieSensor(coordinator, sensor, dict(vehicle_info))
+                for sensor in SENSORS
+            ]
         )
 
 
@@ -147,11 +149,10 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
         vehicle_info: dict,
     ) -> None:
         """Init the BouncieSensor."""
-        super().__init__(coordinator)
-        self.entity_description = description
         self._vehicle_info = vehicle_info
-        self._attr_unique_id = self.entity_description.key
+        self.entity_description = description
         self._attr_has_entity_name = True
+        self._attr_unique_id = self._vehicle_info["vin"] + self.entity_description.key
         self._attr_device_info = DeviceInfo(
             identifiers={(const.DOMAIN, self._vehicle_info["vin"])},
             manufacturer=self._vehicle_info[const.VEHICLE_MODEL_KEY]["make"],
@@ -159,6 +160,7 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
             name=self._vehicle_info["nickName"],
             hw_version=self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"],
         )
+        super().__init__(coordinator)
 
     @property
     def native_value(self) -> str | None:
