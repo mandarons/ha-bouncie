@@ -1,6 +1,7 @@
 """Global fixtures for bouncie integration."""
 import pytest
 from unittest.mock import patch
+from bounciepy.exceptions import BouncieException
 
 pytest_plugins = "pytest_homeassistant_custom_component"
 
@@ -31,6 +32,6 @@ def error_get_data_fixture():
     """Simulate error when retrieving data from API."""
     with patch(
         "custom_components.bouncie.coordinator.AsyncRESTAPIClient.get_all_vehicles",
-        side_effect=Exception,
+        side_effect=BouncieException("fetch error"),
     ):
         yield
