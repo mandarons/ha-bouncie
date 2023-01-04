@@ -4,7 +4,6 @@ from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.helpers import entity_registry as er
 from . import setup_platform
 from . import const
-from bounciepy.exceptions import BouncieException
 
 
 async def test_car_info_sensor(hass: HomeAssistant) -> None:
