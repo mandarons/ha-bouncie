@@ -20,7 +20,6 @@ def bypass_setup_fixture():
         yield
 
 
-@pytest.mark.asyncio
 async def test_form(hass) -> None:
     """Test we get the form."""
     result = await hass.config_entries.flow.async_init(
@@ -60,7 +59,6 @@ async def test_form(hass) -> None:
     assert len(mock_setup_entry.mock_calls) == 1
 
 
-@pytest.mark.asyncio
 async def test_form_invalid_auth(hass: HomeAssistant) -> None:
     """Test we handle invalid auth."""
     result = await hass.config_entries.flow.async_init(
@@ -85,7 +83,6 @@ async def test_form_invalid_auth(hass: HomeAssistant) -> None:
     assert result2["errors"] == {"base": "invalid_auth"}
 
 
-@pytest.mark.asyncio
 async def test_form_auth_failed(hass: HomeAssistant) -> None:
     """Test we handle invalid auth."""
     result = await hass.config_entries.flow.async_init(
@@ -110,7 +107,6 @@ async def test_form_auth_failed(hass: HomeAssistant) -> None:
     assert result2["errors"] == {"base": "invalid_auth"}
 
 
-@pytest.mark.asyncio
 async def test_form_bouncie_exception(hass: HomeAssistant) -> None:
     """Test we handle cannot connect error."""
     result = await hass.config_entries.flow.async_init(
