@@ -47,11 +47,7 @@ class BouncieDataUpdateCoordinator(DataUpdateCoordinator):
         all_vehicles = None
         try:
             all_vehicles = await self.bouncie_client.get_all_vehicles()
-        except (UnauthorizedError):
-            try:
-                if True is await self.bouncie_client.get_access_token():
-                    all_vehicles = await self.bouncie_client.get_all_vehicles()
-            except (BouncieException, ClientConnectorError) as error:
-                raise UpdateFailed(error) from error
+        except (BouncieException, ClientConnectorError) as error:
+            raise UpdateFailed(error) from error
         data["vehicles"] = all_vehicles
         return data
