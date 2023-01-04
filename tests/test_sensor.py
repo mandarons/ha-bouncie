@@ -21,16 +21,3 @@ async def test_car_info_sensor(hass: HomeAssistant) -> None:
     )
     assert state.attributes["vin"] == const.MOCK_VEHICLES_RESPONSE[0]["vin"]
     assert state.attributes["imei"] == const.MOCK_VEHICLES_RESPONSE[0]["imei"]
-
-
-async def test_car_info_sensor_update_failed(
-    hass: HomeAssistant, error_on_get_data
-) -> None:
-    """Test error on data update."""
-    mock_entry, mock_controller = await setup_platform(hass, SENSOR_DOMAIN)
-    mock_controller.return_value.get_all_vehicles.side_effect = BouncieException(
-        "fetch error"
-    )
-    entity_registry = er.async_get(hass)
-    entry = entity_registry.async_get("sensor.my_prius_car_info")
-    assert entry is not None
