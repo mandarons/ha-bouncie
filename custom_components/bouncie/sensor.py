@@ -11,7 +11,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -132,7 +132,8 @@ async def async_setup_entry(
             [
                 BouncieSensor(coordinator, sensor, dict(vehicle_info))
                 for sensor in SENSORS
-            ]
+            ],
+            True,
         )
 
 
@@ -161,6 +162,19 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
             hw_version=self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"],
         )
         super().__init__(coordinator)
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        self._vehicle_info = (
+            lambda: [
+                vehicle
+                for vehicle in self.coordinator.data["vehicles"]
+                if vehicle["vin"] == self._vehicle_info["vin"]
+            ][0]
+            or self._vehicle_info
+        )()
+        self.async_write_ha_state()
+        return super()._handle_coordinator_update()
 
     @property
     def native_value(self) -> str | None:
