@@ -5,5 +5,8 @@
     "files.associations": {
         "*.yaml": "home-assistant"
     },
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.testing.pytestArgs": [
+        "--no-cov"
+    ]
 }
