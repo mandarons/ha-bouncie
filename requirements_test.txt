@@ -1,2 +1,3 @@
 bounciepy
 pytest-homeassistant-custom-component
+pre-commit

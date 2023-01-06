@@ -1,10 +1,10 @@
 """Test the bouncie config flow."""
 from unittest.mock import patch
-import pytest
 
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
+import pytest
 
 from custom_components.bouncie.config_flow import InvalidAuth
 from custom_components.bouncie.const import DOMAIN

@@ -4,13 +4,12 @@ from __future__ import annotations
 from typing import Any
 
 from bounciepy import AsyncRESTAPIClient
-import voluptuous as vol
-
 from homeassistant import config_entries
 from homeassistant.const import CONF_ACCESS_TOKEN, CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
+import voluptuous as vol
 
 from .const import CONF_CODE, CONF_REDIRECT_URI, DOMAIN, LOGGER
 

@@ -5,7 +5,7 @@ import datetime
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
-from homeassistant.core import HomeAssistant, Config
+from homeassistant.core import Config, HomeAssistant
 
 from .const import DOMAIN, LOGGER
 from .coordinator import BouncieDataUpdateCoordinator

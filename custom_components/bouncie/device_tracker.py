@@ -3,11 +3,11 @@
 from homeassistant.components.device_tracker import SOURCE_TYPE_GPS
 from homeassistant.components.device_tracker.config_entry import TrackerEntity
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
-from homeassistant.helpers.entity import DeviceInfo
 
-from . import const, BouncieDataUpdateCoordinator
+from . import BouncieDataUpdateCoordinator, const
 
 ATTRIBUTION = "Data provided by Bouncie"
 

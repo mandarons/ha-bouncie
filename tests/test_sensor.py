@@ -1,13 +1,14 @@
 """Tests for sensor.py."""
-from homeassistant.core import HomeAssistant
-from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.helpers import entity_registry as er
-from . import setup_platform
-from . import const
-
-import homeassistant.util.dt as date_util
 from datetime import timedelta
+
+from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import entity_registry as er
+import homeassistant.util.dt as date_util
 from pytest_homeassistant_custom_component.common import async_fire_time_changed
+
+from . import const, setup_platform
+
 
 async def test_car_info_sensor(hass: HomeAssistant) -> None:
     """Test getting all vehicles."""
@@ -27,7 +28,7 @@ async def test_car_info_sensor(hass: HomeAssistant) -> None:
 
 async def test_sensor_update(hass: HomeAssistant) -> None:
     """Test sensor auto-update."""
-    mock_entry, mock_controller = await setup_platform(hass, SENSOR_DOMAIN)
+    _, mock_controller = await setup_platform(hass, SENSOR_DOMAIN)
     entity_registry = er.async_get(hass)
     entry = entity_registry.async_get("sensor.my_prius_car_info")
     assert entry is not None

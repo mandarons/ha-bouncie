@@ -1,23 +1,23 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "description": "If you need help with configuration, visit https://github.com/mandarons/ha-bouncie",
-                "data": {
-                    "client_id": "client_id",
-                    "client_secret": "client_secret",
-                    "redirect_uri": "redirect_uri",
-                    "code": "authorization_code"
-                }
-            }
-        },
-        "error": {
-            "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-            "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
-            "unknown": "[%key:common::config_flow::error::unknown%]"
-        },
-        "abort": {
-            "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+  "config": {
+    "step": {
+      "user": {
+        "description": "If you need help with configuration, visit https://github.com/mandarons/ha-bouncie",
+        "data": {
+          "client_id": "client_id",
+          "client_secret": "client_secret",
+          "redirect_uri": "redirect_uri",
+          "code": "authorization_code"
         }
+      }
+    },
+    "error": {
+      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
+      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
     }
+  }
 }

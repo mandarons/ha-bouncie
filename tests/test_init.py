@@ -3,9 +3,8 @@ from homeassistant.exceptions import ConfigEntryNotReady
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.bouncie import (
+from custom_components.bouncie import (  # async_reload_entry,
     BouncieDataUpdateCoordinator,
-    # async_reload_entry,
     async_setup_entry,
     async_unload_entry,
 )

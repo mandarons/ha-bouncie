@@ -1,3 +1,4 @@
+"""Tests constants."""
 DOMAIN = "bouncie"
 CONF_REDIRECT_URI = "redirect_uri"
 CONF_CODE = "code"
