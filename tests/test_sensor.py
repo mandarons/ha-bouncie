@@ -5,6 +5,9 @@ from homeassistant.helpers import entity_registry as er
 from . import setup_platform
 from . import const
 
+import homeassistant.util.dt as date_util
+from datetime import timedelta
+from pytest_homeassistant_custom_component.common import async_fire_time_changed
 
 async def test_car_info_sensor(hass: HomeAssistant) -> None:
     """Test getting all vehicles."""
@@ -20,3 +23,21 @@ async def test_car_info_sensor(hass: HomeAssistant) -> None:
     )
     assert state.attributes["vin"] == const.MOCK_VEHICLES_RESPONSE[0]["vin"]
     assert state.attributes["imei"] == const.MOCK_VEHICLES_RESPONSE[0]["imei"]
+
+
+async def test_sensor_update(hass: HomeAssistant) -> None:
+    """Test sensor auto-update."""
+    mock_entry, mock_controller = await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_info")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_info")
+    assert state.state == "Not Running"
+    instance = mock_controller.return_value
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    updated_response[0]["stats"]["isRunning"] = True
+    instance.get_all_vehicles.return_value = updated_response
+    async_fire_time_changed(hass, date_util.now() + timedelta(seconds=10))
+    await hass.async_block_till_done()
+    state = hass.states.get("sensor.my_prius_car_info")
+    assert state.state == "Running"
