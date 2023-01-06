@@ -31,7 +31,6 @@ async def test_device_tracker(hass: HomeAssistant) -> None:
         == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["location"]["heading"]
     )
 
-
 async def test_device_tracker_update(hass: HomeAssistant) -> None:
     """Test getting updated value."""
     mock_entry, mock_controller = await setup_platform(hass, DEVICE_TRACKER_DOMAIN)

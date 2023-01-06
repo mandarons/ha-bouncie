@@ -9,7 +9,6 @@ import homeassistant.util.dt as date_util
 from datetime import timedelta
 from pytest_homeassistant_custom_component.common import async_fire_time_changed
 
-
 async def test_car_info_sensor(hass: HomeAssistant) -> None:
     """Test getting all vehicles."""
     await setup_platform(hass, SENSOR_DOMAIN)
