@@ -1,8 +1,8 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-  "image": "ghcr.io/ludeeus/devcontainer/integration:stable",
-  "name": "Bouncie integration development",
   "context": "..",
+  "dockerFile": "Dockerfile",
+  "name": "Bouncie integration development",
   "appPort": ["9123:8123"],
   "postCreateCommand": "container install",
   "extensions": [
