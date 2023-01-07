@@ -67,7 +67,8 @@ jobs:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements*.txt') }}
           restore-keys: |
-            ${{ runner.os }}-pip-      - name: Install requirements
+            ${{ runner.os }}-pip-
+      - name: Install requirements
         run: python3 -m pip install -r requirements_test.txt
       - name: Run tests
         run: |
