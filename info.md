@@ -11,11 +11,12 @@
 
 **This component will set up the following platforms.**
 
-Platform | Description
--- | --
-`sensor` | Show info from API.
+| Platform | Description         |
+| -------- | ------------------- |
+| `sensor` | Show info from API. |
 
 {% if not installed %}
+
 ## Installation
 
 1. Click install.
@@ -23,12 +24,11 @@ Platform | Description
 
 {% endif %}
 
-
 ## Configuration is done in the UI
 
 <!---->
 
-***
+---
 
 [bouncie]: https://github.com/mandarons/ha-bouncie
 [buymecoffee]: https://www.buymeacoffee.com/mandarons
@@ -37,8 +37,10 @@ Platform | Description
 [commits]: https://github.com/mandarons/ha-bouncie/commits/main
 [hacs]: https://hacs.xyz
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
+
 <!-- [discord]: https://discord.gg/Qa5fW2R -->
 <!-- [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge -->
+
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
 [license]: https://github.com/mandarons/ha-bouncie/blob/main/LICENSE

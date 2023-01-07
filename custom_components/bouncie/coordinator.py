@@ -5,7 +5,6 @@ import logging
 from aiohttp.client_exceptions import ClientConnectorError
 from bounciepy import AsyncRESTAPIClient
 from bounciepy.exceptions import BouncieException
-
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET
 from homeassistant.core import HomeAssistant

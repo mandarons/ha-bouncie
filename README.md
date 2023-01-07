@@ -1,4 +1,5 @@
 # bouncie
+
 [![CI - Main][build-shield]][build]
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
@@ -7,8 +8,7 @@
 [![GitHub Sponsors][github-sponsors-badge]][github-sponsors]
 <a href="https://www.buymeacoffee.com/mandarons" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 150px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
-
-:love_you_gesture: ***Please star this repository if you end up using this integration. If it improved your life in any way, consider donating for my effort using 'Buy Me a Coffee' button above or sponsoring this project using GitHub Sponsors. It will help me continue supporting this product.*** :pray:
+:love*you_gesture: \*\*\_Please star this repository if you end up using this integration. If it improved your life in any way, consider donating for my effort using 'Buy Me a Coffee' button above or sponsoring this project using GitHub Sponsors. It will help me continue supporting this product.*\*\* :pray:
 
 **This component will set up the following platforms.**
 
@@ -44,7 +44,7 @@ To generate an Bouncie application credentials -
 
 1. Go to the [Bouncie Developer Page](https://bouncie.dev/) page
 2. Login with your `bouncie.com` credentials
-3. Click on `+ ADD APPLICATION` 
+3. Click on `+ ADD APPLICATION`
 4. Provide a `name` for application e.g. Home Assistant Integration
 5. Provide a unique `client_id` e.g. alphanumeric random string
 6. Provide redirect URL to be your Home Assistant URL
@@ -54,12 +54,12 @@ To generate an Bouncie application credentials -
 10. Choose 'Yes' when prompted to authorize devices to your application.
 11. You should now see your account listed in the "Users & Devices" list.
 12. Next to your listed account, click the "Expand" arrow to see your "Auhtorization Code"
-14. Copy the alphanumeric listed under "Authorization Code" - this is your `authorization_code`
-15. Note down following values to enter in Home Assistant
-    1.  Client ID 
-    2.  Client Secret
-    3.  Redirect URL
-    4.  Authorization Code
+13. Copy the alphanumeric listed under "Authorization Code" - this is your `authorization_code`
+14. Note down following values to enter in Home Assistant
+    1. Client ID
+    2. Client Secret
+    3. Redirect URL
+    4. Authorization Code
 
 <div class="note">
 This integration currently uses REST API only with polling.
@@ -71,7 +71,7 @@ This integration currently uses REST API only with polling.
 
 If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
 
-***
+---
 
 [build]: https://github.com/mandarons/bounciepy/actions/workflows/ci-main-test-coverage.yml
 [build-shield]: https://github.com/mandarons/bounciepy/actions/workflows/ci-main-test-coverage.yml/badge.svg
@@ -84,6 +84,3 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [discord-badge]: https://img.shields.io/discord/871555550444408883
 [github-sponsors]: https://github.com/sponsors/mandarons
 [github-sponsors-badge]: https://img.shields.io/github/sponsors/mandarons
-
-
-

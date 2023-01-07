@@ -1,7 +1,8 @@
 """Global fixtures for bouncie integration."""
-import pytest
 from unittest.mock import patch
+
 from bounciepy.exceptions import BouncieException
+import pytest
 
 pytest_plugins = "pytest_homeassistant_custom_component"
 
@@ -10,7 +11,7 @@ pytest_plugins = "pytest_homeassistant_custom_component"
 # Remove to enable selective use of this fixture
 @pytest.fixture(autouse=True)
 def auto_enable_custom_integrations(enable_custom_integrations):
-    """Enable custom integrations"""
+    """Enable custom integrations."""
     yield
 
 
