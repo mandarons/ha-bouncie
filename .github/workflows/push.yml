@@ -1,5 +1,10 @@
 name: Push actions
-
+env:
+  CHECKOUT_ACTION: "actions/checkout@v3"
+  CACHE_ACTION: "actions/cache@v3"
+  SETUP_PYTHON_ACTION: "actions/setup-python@v4"
+  UPLOAD_ARTIFACT_ACTION: "actions/upload-artifact@v3"
+  DOWNLOAD_ARTIFACT_ACTION: "actions/download-artifact@v3"
 on:
   push:
     branches:
@@ -17,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v2
+        uses: "$CHECKOUT_ACTION"
       - name: Set up Python 3.10
-        uses: actions/setup-python@v2
+        uses: "$SETUP_PYTHON_ACTION"
         with:
           python-version: "3.10"
       - name: Cache pip dependencies
-        uses: actions/cache@v2
+        uses: "$CACHE_ACTION"
         id: cache-dependencies
         with:
           path: ~/.cache/pip
@@ -38,7 +43,7 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Validate
     steps:
-      - uses: "actions/checkout@v3"
+      - uses: "$CHECKOUT_ACTION"
 
       - name: HACS validation
         uses: "hacs/action@main"
@@ -52,8 +57,8 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Check style formatting
     steps:
-      - uses: "actions/checkout@v3"
-      - uses: "actions/setup-python@v4"
+      - uses: "$CHECKOUT_ACTION"
+      - uses: "$SETUP_PYTHON_ACTION"
         with:
           python-version: "3.10"
       - run: python3 -m pip install black
@@ -64,13 +69,13 @@ jobs:
     name: Run tests
     steps:
       - name: Check out code from GitHub
-        uses: "actions/checkout@v3"
+        uses: "$CHECKOUT_ACTION"
       - name: Setup Python 3.10
-        uses: "actions/setup-python@v4"
+        uses: "$SETUP_PYTHON_ACTION"
         with:
           python-version: "3.10"
       - name: Restore pip cache dependencies
-        uses: actions/cache@v2
+        uses: "$CACHE_ACTION"
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements*.txt') }}
@@ -93,14 +98,14 @@ jobs:
             --alluredir=./allure-results \
             tests && rm htmlcov/.gitignore
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v2
+        uses: "$UPLOAD_ARTIFACT_ACTION"
         if: ${{ success() }}
         with:
           name: coverage-output
           path: htmlcov
           retention-days: 1
       - name: Checkout gh-pages
-        uses: actions/checkout@v2
+        uses: "$CHECKOUT_ACTION"
         if: always()
         continue-on-error: true
         with:
@@ -119,19 +124,19 @@ jobs:
         run: |
           python generate_badges.py
       - name: Upload tests artifacts
-        uses: actions/upload-artifact@v2
+        uses: "$UPLOAD_ARTIFACT_ACTION"
         with:
           name: test-output
           path: allure-history/test-results/
           retention-days: 1
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v2
+        uses: "$UPLOAD_ARTIFACT_ACTION"
         with:
           name: coverage-output
           path: htmlcov
           retention-days: 1
       - name: Upload badges artifacts
-        uses: actions/upload-artifact@v2
+        uses: "$UPLOAD_ARTIFACT_ACTION"
         with:
           name: badges-output
           path: badges
@@ -141,12 +146,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download test artifacts
-        uses: actions/download-artifact@v2
+        uses: "$DOWNLOAD_ARTIFACT_ACTION"
         with:
           name: test-output
           path: allure-history
       - name: Checkout gh-pages
-        uses: actions/checkout@v2
+        uses: "$CHECKOUT_ACTION"
         if: always()
         continue-on-error: true
         with:
@@ -165,12 +170,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download coverage artifacts
-        uses: actions/download-artifact@v2
+        uses: "$DOWNLOAD_ARTIFACT_ACTION"
         with:
           name: coverage-output
           path: coverage
       - name: Checkout gh-pages
-        uses: actions/checkout@v2
+        uses: "$CHECKOUT_ACTION"
         if: always()
         continue-on-error: true
         with:
@@ -189,12 +194,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download badges artifacts
-        uses: actions/download-artifact@v2
+        uses: "$DOWNLOAD_ARTIFACT_ACTION"
         with:
           name: badges-output
           path: badges
       - name: Checkout gh-pages
-        uses: actions/checkout@v2
+        uses: "$CHECKOUT_ACTION"
         if: always()
         continue-on-error: true
         with:
