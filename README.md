@@ -1,6 +1,8 @@
 # bouncie
 
 [![CI - Main][build-shield]][build]
+[![Tests](https://mandarons.github.io/ha-bouncie/badges/tests.svg)](https://mandarons.github.io/ha-bouncie/test-results/)
+[![Coverage](https://mandarons.github.io/ha-bouncie/badges/coverage.svg)](https://mandarons.github.io/ha-bouncie/test-coverage/index.html)
 [![GitHub Release][releases-shield]][releases]
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
