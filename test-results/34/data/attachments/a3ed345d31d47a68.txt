@@ -1,0 +1,34 @@
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.000 seconds (success: True)
+INFO:homeassistant.loader:Loaded device_tracker from homeassistant.components.device_tracker
+INFO:homeassistant.loader:Loaded zone from homeassistant.components.zone
+DEBUG:homeassistant.setup:Dependency device_tracker will wait for dependencies ['zone']
+INFO:homeassistant.setup:Setting up zone
+DEBUG:homeassistant.core:Bus:Handling <Event service_registered[L]: domain=zone, service=reload>
+DEBUG:homeassistant.core:Bus:Handling <Event state_changed[L]: entity_id=zone.home, old_state=None, new_state=<state zone.home=0; latitude=32.87336, longitude=-117.22743, radius=100, passive=False, persons=[], editable=True, icon=mdi:home, friendly_name=test home @ 2023-01-08T07:56:31.224630-08:00>>
+INFO:homeassistant.setup:Setup of domain zone took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=zone>
+INFO:homeassistant.setup:Setting up device_tracker
+DEBUG:homeassistant.core:Bus:Handling <Event service_registered[L]: domain=device_tracker, service=see>
+INFO:homeassistant.setup:Setup of domain device_tracker took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=device_tracker>
+INFO:homeassistant.components.device_tracker:Setting up device_tracker.bouncie
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.000 seconds (success: True)
+DEBUG:homeassistant.core:Bus:Handling <Event device_registry_updated[L]: action=create, device_id=1f6ca101be6057250ac5c97682575b50>
+INFO:homeassistant.helpers.entity_registry:Registered new device_tracker.bouncie entity: device_tracker.my_prius
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=device_tracker.my_prius>
+DEBUG:homeassistant.core:Bus:Handling <Event state_changed[L]: entity_id=device_tracker.my_prius, old_state=None, new_state=<state device_tracker.my_prius=not_home; source_type=gps, latitude=40.6411124, longitude=-73.9960607, gps_accuracy=0, heading=146, speed=0, attribution=Data provided by Bouncie, friendly_name=my prius @ 2023-01-08T07:56:31.234249-08:00>>
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=bouncie>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_stop[L]>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_final_write[L]>
+INFO:pytest_homeassistant_custom_component.common:Writing data to core.device_registry: {'version': 1, 'minor_version': 3, 'key': 'core.device_registry', 'data': {'devices': [{'area_id': None, 'config_entries': ['83841c54717ceecfca71fe85b9909fed'], 'configuration_url': None, 'connections': [], 'disabled_by': None, 'entry_type': None, 'hw_version': 2007, 'id': '1f6ca101be6057250ac5c97682575b50', 'identifiers': [('bouncie', 'toyota-prius-2007-vin')], 'manufacturer': 'TOYOTA', 'model': 'PRIUS', 'name_by_user': None, 'name': 'my prius', 'sw_version': None, 'via_device_id': None}], 'deleted_devices': []}}
+INFO:pytest_homeassistant_custom_component.common:Writing data to core.entity_registry: {'version': 1, 'minor_version': 10, 'key': 'core.entity_registry', 'data': {'entities': [{'aliases': [], 'area_id': None, 'capabilities': None, 'config_entry_id': '83841c54717ceecfca71fe85b9909fed', 'device_class': None, 'device_id': '1f6ca101be6057250ac5c97682575b50', 'disabled_by': None, 'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>, 'entity_id': 'device_tracker.my_prius', 'hidden_by': None, 'icon': None, 'id': '0fa72b2e725054e4b992c32a93ebf32b', 'has_entity_name': True, 'name': None, 'options': {}, 'original_device_class': None, 'original_icon': None, 'original_name': None, 'platform': 'bouncie', 'supported_features': 0, 'translation_key': None, 'unique_id': 'my_prius_tracker', 'unit_of_measurement': None}]}}
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_close[L]>
+WARNING:pytest_homeassistant_custom_component.plugins:Lingering timer after test <TimerHandle when=289.75166649778726 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...7efc2615e440>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1311>
+WARNING:pytest_homeassistant_custom_component.plugins:Lingering timer after test <TimerHandle when=295.692307652 Debouncer._schedule_timer.<locals>.<lambda>() at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/debounce.py:129>
+WARNING:pytest_homeassistant_custom_component.plugins:Lingering timer after test <TimerHandle when=295.84348525935866 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...efc26148550>>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1311>
+DEBUG:asyncio:Using selector: EpollSelector

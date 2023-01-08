@@ -1,0 +1,6 @@
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.000 seconds (success: False)
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_stop[L]>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_final_write[L]>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_close[L]>
+DEBUG:asyncio:Using selector: EpollSelector
