@@ -10,6 +10,7 @@ on:
       - pylintrc
       - requirements*.txt
       - setup.cfg
+      - .github/workflows/push.yml
 jobs:
   cache-requirements-install:
     runs-on: ubuntu-latest
