@@ -16,7 +16,7 @@ from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from . import BouncieDataUpdateCoordinator, const
+from . import BouncieDataUpdateCoordinator, const, patch_missing_data
 
 ATTRIBUTION = "Data provided by Bouncie"
 PARALLEL_UPDATES = 1
@@ -154,7 +154,7 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
         vehicle_info: dict,
     ) -> None:
         """Init the BouncieSensor."""
-        self._vehicle_info = vehicle_info
+        self._vehicle_info = patch_missing_data(vehicle_info)
         self.entity_description = description
         self._attr_has_entity_name = True
         self._attr_unique_id = self._vehicle_info["vin"] + self.entity_description.key
@@ -177,6 +177,7 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
             ][0]
             or self._vehicle_info
         )()
+        self._vehicle_info = patch_missing_data(self._vehicle_info)
         self.async_write_ha_state()
         return super()._handle_coordinator_update()
 

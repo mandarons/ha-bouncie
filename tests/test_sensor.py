@@ -42,3 +42,15 @@ async def test_sensor_update(hass: HomeAssistant) -> None:
     await hass.async_block_till_done()
     state = hass.states.get("sensor.my_prius_car_info")
     assert state.state == "Running"
+
+
+async def test_battery_info_missing(hass: HomeAssistant) -> None:
+    """Test battery info missing from bouncie server."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    del updated_response[0]["stats"]["battery"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_battery")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_battery")
+    assert state.state == "Not available"
