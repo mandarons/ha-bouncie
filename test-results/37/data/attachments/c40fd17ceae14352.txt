@@ -1,0 +1,30 @@
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.002 seconds (success: True)
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.loader:Loaded sensor from homeassistant.components.sensor
+INFO:homeassistant.setup:Setting up sensor
+INFO:homeassistant.setup:Setup of domain sensor took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=sensor>
+INFO:homeassistant.loader:Loaded device_tracker from homeassistant.components.device_tracker
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=bouncie>
+INFO:homeassistant.loader:Loaded zone from homeassistant.components.zone
+INFO:homeassistant.components.sensor:Setting up sensor.bouncie
+DEBUG:homeassistant.setup:Dependency device_tracker will wait for dependencies ['zone']
+INFO:homeassistant.setup:Setting up zone
+DEBUG:homeassistant.core:Bus:Handling <Event service_registered[L]: domain=zone, service=reload>
+DEBUG:homeassistant.core:Bus:Handling <Event state_changed[L]: entity_id=zone.home, old_state=None, new_state=<state zone.home=0; latitude=32.87336, longitude=-117.22743, radius=100, passive=False, persons=[], editable=True, icon=mdi:home, friendly_name=test home @ 2023-01-12T09:40:45.235457-08:00>>
+INFO:homeassistant.setup:Setup of domain zone took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=zone>
+INFO:homeassistant.setup:Setting up device_tracker
+DEBUG:homeassistant.core:Bus:Handling <Event service_registered[L]: domain=device_tracker, service=see>
+INFO:homeassistant.setup:Setup of domain device_tracker took 0.0 seconds
+DEBUG:homeassistant.core:Bus:Handling <Event component_loaded[L]: component=device_tracker>
+INFO:homeassistant.components.device_tracker:Setting up device_tracker.bouncie
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_stop[L]>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_final_write[L]>
+DEBUG:homeassistant.core:Bus:Handling <Event homeassistant_close[L]>
+WARNING:pytest_homeassistant_custom_component.plugins:Lingering timer after test <TimerHandle when=233.81355106923695 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...7fbc66dc09d0>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1311>
+DEBUG:asyncio:Using selector: EpollSelector

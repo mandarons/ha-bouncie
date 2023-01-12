@@ -1,0 +1,8 @@
+DEBUG    asyncio:selector_events.py:54 Using selector: EpollSelector
+DEBUG    asyncio:selector_events.py:54 Using selector: EpollSelector
+INFO     homeassistant.loader:loader.py:553 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:493 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+DEBUG    homeassistant.core:core.py:923 Bus:Handling <Event homeassistant_stop[L]>
+DEBUG    homeassistant.core:core.py:923 Bus:Handling <Event homeassistant_final_write[L]>
+DEBUG    homeassistant.core:core.py:923 Bus:Handling <Event homeassistant_close[L]>
+DEBUG    asyncio:selector_events.py:54 Using selector: EpollSelector

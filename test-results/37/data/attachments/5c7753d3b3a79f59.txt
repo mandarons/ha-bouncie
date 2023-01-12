@@ -1,0 +1,1 @@
+{'client_id': 'mock_client_id', 'client_secret': 'mock_client_secret', 'code': 'mock_authorization_code', 'redirect_uri': 'http://mock-redirect-url', 'access_token': None}
