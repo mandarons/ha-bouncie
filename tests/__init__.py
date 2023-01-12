@@ -14,13 +14,15 @@ def setup_mock_controller(mock_controller, mock_vehicles_response):
     """Set up mock controller with mock data."""
     instance = mock_controller.return_value
     instance.get_access_token.return_value = True
-    instance.get_all_vehicles.return_value = mock_vehicles_response
+    instance.get_all_vehicles.return_value = (
+        mock_vehicles_response or const.MOCK_VEHICLES_RESPONSE
+    )
 
 
 async def setup_platform(
     hass: HomeAssistant,
     platform: str,
-    mock_vehicles_response=const.MOCK_VEHICLES_RESPONSE,
+    mock_vehicles_response=None,
 ) -> MockConfigEntry:
     """Set up Bouncie platform."""
     mock_entry = MockConfigEntry(
