@@ -26,6 +26,68 @@ async def test_car_info_sensor(hass: HomeAssistant) -> None:
     assert state.attributes["imei"] == const.MOCK_VEHICLES_RESPONSE[0]["imei"]
 
 
+async def test_car_odometer_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_odometer")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_odometer")
+    assert state.state == "120508"
+
+
+async def test_car_address_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_address")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_address")
+    assert (
+        state.state == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["location"]["address"]
+    )
+
+
+async def test_car_fuel_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_fuel")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_fuel")
+    assert state.state == "29"
+
+
+async def test_car_speed_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_speed")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_speed")
+    assert state.state == str(int(const.MOCK_VEHICLES_RESPONSE[0]["stats"]["speed"]))
+
+
+async def test_car_mil_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_mil")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_mil")
+    assert state.state == str(const.MOCK_VEHICLES_RESPONSE[0]["stats"]["mil"]["milOn"])
+
+
+async def test_car_battery_sensor(hass: HomeAssistant) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_battery")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_battery")
+    assert state.state == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["battery"]["status"]
+
+
 async def test_sensor_update(hass: HomeAssistant) -> None:
     """Test sensor auto-update."""
     _, mock_controller = await setup_platform(hass, SENSOR_DOMAIN)

@@ -63,7 +63,7 @@ MOCK_VEHICLES_RESPONSE = [
             },
             "fuelLevel": 29.411764705882355,
             "isRunning": False,
-            "speed": 0,
+            "speed": 123.2446465,
             "mil": {"milOn": False, "lastUpdated": "2022-11-23T01:38:55.000Z"},
             "battery": {"status": "normal", "lastUpdated": "2022-11-23T01:37:41.000Z"},
         },
