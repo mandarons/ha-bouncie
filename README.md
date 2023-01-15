@@ -7,7 +7,6 @@
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
 [![Discord][discord-badge]][discord]
-[![GitHub Sponsors][github-sponsors-badge]][github-sponsors]
 <a href="https://www.buymeacoffee.com/mandarons" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 30px !important;width: 150px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 :love*you_gesture: \*\*\_Please star this repository if you end up using this integration. If it improved your life in any way, consider donating for my effort using 'Buy Me a Coffee' button above or sponsoring this project using GitHub Sponsors. It will help me continue supporting this product.*\*\* :pray:
