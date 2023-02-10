@@ -42,6 +42,7 @@ async def test_form(hass) -> None:
                 "client_secret": "mock_client_secret",
                 "code": "mock_authorization_code",
                 "redirect_uri": "http://mock-redirect-url",
+                "scan_interval": 10,
             },
         )
         await hass.async_block_till_done()
@@ -55,6 +56,7 @@ async def test_form(hass) -> None:
         "code": "mock_authorization_code",
         "redirect_uri": "http://mock-redirect-url",
         "access_token": None,
+        "scan_interval": 10,
     }
     assert len(mock_setup_entry.mock_calls) == 1
 

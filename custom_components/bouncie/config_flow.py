@@ -5,7 +5,12 @@ from typing import Any
 
 from bounciepy import AsyncRESTAPIClient
 from homeassistant import config_entries
-from homeassistant.const import CONF_ACCESS_TOKEN, CONF_CLIENT_ID, CONF_CLIENT_SECRET
+from homeassistant.const import (
+    CONF_ACCESS_TOKEN,
+    CONF_CLIENT_ID,
+    CONF_CLIENT_SECRET,
+    CONF_SCAN_INTERVAL,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
@@ -19,6 +24,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
         vol.Required(CONF_CLIENT_SECRET): str,
         vol.Required(CONF_REDIRECT_URI): str,
         vol.Required(CONF_CODE): str,
+        vol.Optional(CONF_SCAN_INTERVAL, default=10): int,
     }
 )
 

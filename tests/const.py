@@ -14,6 +14,7 @@ MOCK_CONFIG_ENTRY = {
     "client_secret": MOCK_CLIENT_SECRET,
     "code": MOCK_AUTH_CODE,
     "redirect_uri": MOCK_REDIRECT_URI,
+    "scan_interval": 10,
 }
 
 MOCK_AUTH_RESPONSE = {

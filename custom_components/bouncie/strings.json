@@ -2,12 +2,21 @@
   "config": {
     "step": {
       "user": {
+        "title": "Bouncie Integration",
         "description": "If you need help with configuration, visit https://github.com/mandarons/ha-bouncie",
         "data": {
           "client_id": "client_id",
           "client_secret": "client_secret",
           "redirect_uri": "redirect_uri",
-          "code": "authorization_code"
+          "code": "authorization_code",
+          "scan_interval": "scan_interval"
+        },
+        "data_description": {
+          "client_id": "Client ID",
+          "client_secret": "Client Secret",
+          "redirect_uri": "Redirect URI",
+          "code": "Authorization Code",
+          "scan_interval": "Data fetch interval (seconds)"
         }
       }
     },
