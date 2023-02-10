@@ -4,7 +4,7 @@ from __future__ import annotations
 import datetime
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import Platform
+from homeassistant.const import CONF_SCAN_INTERVAL, Platform
 from homeassistant.core import Config, HomeAssistant
 
 from .const import DOMAIN, LOGGER
@@ -25,7 +25,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         hass=hass,
         logger=LOGGER,
         config_entry=entry,
-        update_interval=datetime.timedelta(seconds=10),
+        update_interval=datetime.timedelta(seconds=entry.data[CONF_SCAN_INTERVAL]),
     )
     await coordinator.async_config_entry_first_refresh()
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
