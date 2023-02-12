@@ -1,0 +1,19 @@
+INFO     homeassistant.loader:loader.py:558 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:496 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO     homeassistant.setup:setup.py:225 Setting up bouncie
+INFO     homeassistant.setup:setup.py:275 Setup of domain bouncie took 0.0 seconds
+INFO     homeassistant.loader:loader.py:558 Loaded sensor from homeassistant.components.sensor
+INFO     homeassistant.setup:setup.py:225 Setting up sensor
+INFO     homeassistant.setup:setup.py:275 Setup of domain sensor took 0.0 seconds
+INFO     homeassistant.components.sensor:entity_platform.py:279 Setting up sensor.bouncie
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_info
+WARNING  homeassistant.components.sensor:__init__.py:608 Sensor sensor.my_prius_car_info has device class None, state class measurement and unit None thus indicating it has a numeric value; however, it has the non-numeric value: Not Running (<class 'str'>); Please update your configuration if your entity is manually configured, otherwise report it to the custom integration author.
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_odometer
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_address
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_fuel
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_speed
+WARNING  homeassistant.components.sensor:__init__.py:677 Entity sensor.my_prius_car_speed (<class 'custom_components.bouncie.sensor.BouncieSensor'>) is using native unit of measurement 'None' which is not a valid unit for the device class ('speed') it is using; expected one of ['mm/h', 'in/h', 'ft/s', 'mm/d', 'km/h', 'in/d', 'm/s', 'kn', 'mph']; Please update your configuration if your entity is manually configured, otherwise report it to the custom integration author.
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_mil
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new sensor.bouncie entity: sensor.my_prius_car_battery
+WARNING  pytest_homeassistant_custom_component.plugins:plugins.py:254 Lingering timer after test <TimerHandle when=204.29399102581115 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...f43aa328460>>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1310>
+WARNING  pytest_homeassistant_custom_component.plugins:plugins.py:254 Lingering timer after test <TimerHandle when=204.613840237 Debouncer._schedule_timer.<locals>.<lambda>() at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/debounce.py:129>
