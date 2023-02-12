@@ -1,8 +1,12 @@
 """Constants for the bouncie integration."""
 
+from datetime import timedelta
+import json
 import logging
+import os
 
 DOMAIN = "bouncie"
+USAGE_DOMAIN = "bouncie-usage"
 LOGGER = logging.getLogger(__name__)
 
 CONF_REDIRECT_URI = "redirect_uri"
@@ -56,3 +60,15 @@ ATTR_VEHICLE_MIL_LAST_UPDATED_KEY = "mil_lastupdated"
 
 ATTR_VEHICLE_BATTERY_STATUS_KEY = "battery_status"
 ATTR_VEHICLE_BATTERY_LAST_UPDATED_KEY = "battery_lastupdated"
+
+NEW_INSTALLATION_ENDPOINT = "https://wapar-api.mandarons.com/api/installation"
+NEW_HEARTBEAT_ENDPOINT = "https://wapar-api.mandarons.com/api/heartbeat"
+with open(
+    os.path.join(os.path.dirname(__file__), "manifest.json"), encoding="utf-8"
+) as f:
+    MANIFEST_DATA = json.load(f)
+APP_VERSION = MANIFEST_DATA["version"]
+APP_NAME = "ha-bouncie"
+STORAGE_VERSION = 1
+STORAGE_KEY = "core.ha-bouncie"
+HEARTBEAT_INTERVAL = timedelta(days=1)

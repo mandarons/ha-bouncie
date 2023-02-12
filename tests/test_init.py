@@ -1,15 +1,23 @@
 """Test integration_blueprint setup process."""
+import uuid
+
 from homeassistant.exceptions import ConfigEntryNotReady
 import pytest
 from pytest_homeassistant_custom_component.common import MockConfigEntry
+from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
 from custom_components.bouncie import (  # async_reload_entry,
     BouncieDataUpdateCoordinator,
     async_setup_entry,
     async_unload_entry,
 )
-from custom_components.bouncie.const import DOMAIN
+from custom_components.bouncie.const import (
+    DOMAIN,
+    NEW_HEARTBEAT_ENDPOINT,
+    NEW_INSTALLATION_ENDPOINT,
+)
 
+from . import clean_up_bouncie_store
 from .const import MOCK_CONFIG_ENTRY
 
 
@@ -18,9 +26,17 @@ from .const import MOCK_CONFIG_ENTRY
 # Home Assistant using the pytest_homeassistant_custom_component plugin.
 # Assertions allow you to verify that the return value of whatever is on the left
 # side of the assertion matches with the right side.
-async def test_setup_unload_and_reload_entry(hass, bypass_get_data):
+async def test_setup_unload_and_reload_entry(
+    hass, bypass_get_data, aioclient_mock: AiohttpClientMocker
+):
     """Test entry setup and unload."""
     # Create a mock entry so we don't have to go through config flow
+    aioclient_mock.post(
+        NEW_INSTALLATION_ENDPOINT, status=201, json={"id": str(uuid.uuid4())}
+    )
+    aioclient_mock.post(
+        NEW_HEARTBEAT_ENDPOINT, status=201, json={"message": "All good."}
+    )
     config_entry = MockConfigEntry(
         domain=DOMAIN, data=MOCK_CONFIG_ENTRY, entry_id="test"
     )
@@ -44,9 +60,12 @@ async def test_setup_unload_and_reload_entry(hass, bypass_get_data):
     # Unload the entry and verify that the data has been removed
     assert await async_unload_entry(hass, config_entry)
     assert config_entry.entry_id not in hass.data[DOMAIN]
+    clean_up_bouncie_store(hass=hass)
 
 
-async def test_setup_entry_exception(hass, error_on_get_data):
+async def test_setup_entry_exception(
+    hass, error_on_get_data, aioclient_mock: AiohttpClientMocker
+):
     """Test ConfigEntryNotReady when API raises an exception during entry setup."""
     config_entry = MockConfigEntry(
         domain=DOMAIN, data=MOCK_CONFIG_ENTRY, entry_id="test"
@@ -57,3 +76,4 @@ async def test_setup_entry_exception(hass, error_on_get_data):
     # an error.
     with pytest.raises(ConfigEntryNotReady):
         assert await async_setup_entry(hass, config_entry)
+    clean_up_bouncie_store(hass=hass)
