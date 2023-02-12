@@ -1,0 +1,14 @@
+INFO     homeassistant.loader:loader.py:558 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:496 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO     homeassistant.setup:setup.py:225 Setting up bouncie
+INFO     homeassistant.setup:setup.py:275 Setup of domain bouncie took 0.0 seconds
+INFO     homeassistant.loader:loader.py:558 Loaded device_tracker from homeassistant.components.device_tracker
+INFO     homeassistant.loader:loader.py:558 Loaded zone from homeassistant.components.zone
+INFO     homeassistant.setup:setup.py:225 Setting up zone
+INFO     homeassistant.setup:setup.py:275 Setup of domain zone took 0.0 seconds
+INFO     homeassistant.setup:setup.py:225 Setting up device_tracker
+INFO     homeassistant.setup:setup.py:275 Setup of domain device_tracker took 0.0 seconds
+INFO     homeassistant.components.device_tracker:entity_platform.py:279 Setting up device_tracker.bouncie
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:563 Registered new device_tracker.bouncie entity: device_tracker.my_prius
+WARNING  pytest_homeassistant_custom_component.plugins:plugins.py:254 Lingering timer after test <TimerHandle when=193.67845785432482 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...f91550b8580>>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1310>
+WARNING  pytest_homeassistant_custom_component.plugins:plugins.py:254 Lingering timer after test <TimerHandle when=196.89546822835436 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...7f9154e2a830>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1310>

@@ -1,0 +1,5 @@
+INFO     homeassistant.loader:loader.py:558 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:496 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO     homeassistant.setup:setup.py:225 Setting up bouncie
+INFO     homeassistant.setup:setup.py:275 Setup of domain bouncie took 0.0 seconds
+WARNING  pytest_homeassistant_custom_component.plugins:plugins.py:254 Lingering timer after test <TimerHandle when=86584.57780356977 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobT...7f9154fbda20>>) at /opt/hostedtoolcache/Python/3.10.9/x64/lib/python3.10/site-packages/homeassistant/helpers/event.py:1310>
