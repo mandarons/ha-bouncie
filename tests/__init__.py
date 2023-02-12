@@ -5,7 +5,9 @@ from homeassistant.core import HomeAssistant
 from homeassistant.setup import async_setup_component
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
+from custom_components.bouncie.const import STORAGE_KEY, STORAGE_VERSION
 from custom_components.bouncie.coordinator import AsyncRESTAPIClient
+from custom_components.bouncie.usage import BouncieStore
 
 from . import const
 
@@ -39,3 +41,9 @@ async def setup_platform(
     await hass.async_block_till_done()
 
     return mock_entry, mock_controller
+
+
+def clean_up_bouncie_store(hass: HomeAssistant):
+    """Remove Bouncie store."""
+    store = BouncieStore(hass=hass, version=STORAGE_VERSION, key=STORAGE_KEY)
+    store.remove()

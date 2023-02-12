@@ -5,18 +5,17 @@ from typing import Any
 
 from bounciepy import AsyncRESTAPIClient
 from homeassistant import config_entries
-from homeassistant.const import (
-    CONF_ACCESS_TOKEN,
-    CONF_CLIENT_ID,
-    CONF_CLIENT_SECRET,
-    CONF_SCAN_INTERVAL,
-)
+from homeassistant.const import CONF_CLIENT_ID, CONF_CLIENT_SECRET, CONF_SCAN_INTERVAL
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.event import async_track_time_interval
 import voluptuous as vol
 
-from .const import CONF_CODE, CONF_REDIRECT_URI, DOMAIN, LOGGER
+from custom_components.bouncie.usage import Usage
+
+from .const import CONF_CODE, CONF_REDIRECT_URI, DOMAIN, HEARTBEAT_INTERVAL, LOGGER
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
@@ -34,16 +33,21 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
 
     Data has the keys from STEP_USER_DATA_SCHEMA with values provided by the user.
     """
+    session = async_get_clientsession(hass=hass)
     bouncie_client = AsyncRESTAPIClient(
         client_id=data[CONF_CLIENT_ID],
         client_secret=data[CONF_CLIENT_SECRET],
         redirect_url=data[CONF_REDIRECT_URI],
         auth_code=data[CONF_CODE],
+        session=session,
     )
     result = await bouncie_client.get_access_token()
     if not result:
         raise InvalidAuth
-    data[CONF_ACCESS_TOKEN] = bouncie_client.access_token
+    usage = Usage(hass=hass, session=session)
+    if await usage.install():
+        # Send every day
+        async_track_time_interval(hass, usage.heartbeat, HEARTBEAT_INTERVAL)
     return data
 
 

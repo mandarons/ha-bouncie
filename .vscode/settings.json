@@ -6,5 +6,6 @@
     "*.yaml": "home-assistant"
   },
   "python.formatting.provider": "black",
-  "python.testing.pytestArgs": ["--no-cov"]
+  "python.testing.pytestArgs": ["--no-cov"],
+  "python.analysis.typeCheckingMode": "off"
 }

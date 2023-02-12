@@ -17,6 +17,12 @@
       ]
     },
     {
+      "name": "Debug Unit Test",
+      "type": "python",
+      "request": "test",
+      "justMyCode": false
+    },
+    {
       // Example of attaching to my production server
       "name": "Python: Attach Remote",
       "type": "python",
