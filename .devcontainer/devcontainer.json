@@ -4,7 +4,6 @@
   "dockerFile": "Dockerfile",
   "name": "Bouncie integration development",
   "appPort": ["9123:8123"],
-  "postCreateCommand": "container install",
   "extensions": [
     "ms-python.python",
     "github.vscode-pull-request-github",
@@ -24,5 +23,6 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "files.trimTrailingWhitespace": true
-  }
+  },
+  "remoteUser": "vscode"
 }

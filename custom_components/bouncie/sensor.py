@@ -168,14 +168,11 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
 
     @callback
     def _handle_coordinator_update(self) -> None:
-        self._vehicle_info = (
-            lambda: [
-                vehicle
-                for vehicle in self.coordinator.data["vehicles"]
-                if vehicle["vin"] == self._vehicle_info["vin"]
-            ][0]
-            or self._vehicle_info
-        )()
+        self._vehicle_info = [
+            vehicle
+            for vehicle in self.coordinator.data["vehicles"]
+            if vehicle["vin"] == self._vehicle_info["vin"]
+        ][0] or self._vehicle_info
         self._vehicle_info = patch_missing_data(self._vehicle_info)
         self.async_write_ha_state()
         return super()._handle_coordinator_update()
