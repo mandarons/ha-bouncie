@@ -1,4 +1,4 @@
-FROM ghcr.io/ludeeus/devcontainer/integration:stable
+FROM mcr.microsoft.com/vscode/devcontainers/python:0-3.10-bullseye
 
 RUN \
     apt-get update \
