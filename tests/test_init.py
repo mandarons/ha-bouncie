@@ -1,5 +1,4 @@
 """Test integration_blueprint setup process."""
-import uuid
 
 from homeassistant.exceptions import ConfigEntryNotReady
 import pytest
@@ -11,13 +10,8 @@ from custom_components.bouncie import (  # async_reload_entry,
     async_setup_entry,
     async_unload_entry,
 )
-from custom_components.bouncie.const import (
-    DOMAIN,
-    NEW_HEARTBEAT_ENDPOINT,
-    NEW_INSTALLATION_ENDPOINT,
-)
+from custom_components.bouncie.const import DOMAIN
 
-from . import clean_up_bouncie_store
 from .const import MOCK_CONFIG_ENTRY
 
 
@@ -31,12 +25,6 @@ async def test_setup_unload_and_reload_entry(
 ):
     """Test entry setup and unload."""
     # Create a mock entry so we don't have to go through config flow
-    aioclient_mock.post(
-        NEW_INSTALLATION_ENDPOINT, status=201, json={"id": str(uuid.uuid4())}
-    )
-    aioclient_mock.post(
-        NEW_HEARTBEAT_ENDPOINT, status=201, json={"message": "All good."}
-    )
     config_entry = MockConfigEntry(
         domain=DOMAIN, data=MOCK_CONFIG_ENTRY, entry_id="test"
     )
@@ -60,7 +48,6 @@ async def test_setup_unload_and_reload_entry(
     # Unload the entry and verify that the data has been removed
     assert await async_unload_entry(hass, config_entry)
     assert config_entry.entry_id not in hass.data[DOMAIN]
-    clean_up_bouncie_store(hass=hass)
 
 
 async def test_setup_entry_exception(
@@ -76,4 +63,3 @@ async def test_setup_entry_exception(
     # an error.
     with pytest.raises(ConfigEntryNotReady):
         assert await async_setup_entry(hass, config_entry)
-    clean_up_bouncie_store(hass=hass)
