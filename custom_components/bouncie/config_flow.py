@@ -10,12 +10,9 @@ from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.helpers.event import async_track_time_interval
 import voluptuous as vol
 
-from custom_components.bouncie.usage import Usage
-
-from .const import CONF_CODE, CONF_REDIRECT_URI, DOMAIN, HEARTBEAT_INTERVAL, LOGGER
+from .const import CONF_CODE, CONF_REDIRECT_URI, DOMAIN, LOGGER
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
     {
@@ -44,10 +41,6 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     result = await bouncie_client.get_access_token()
     if not result:
         raise InvalidAuth
-    usage = Usage(hass=hass, session=session)
-    if await usage.install():
-        # Send every day
-        async_track_time_interval(hass, usage.heartbeat, HEARTBEAT_INTERVAL)
     return data
 
 

@@ -1,6 +1,5 @@
 """Test the bouncie config flow."""
 from unittest.mock import patch
-import uuid
 
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
@@ -8,11 +7,7 @@ from homeassistant.data_entry_flow import FlowResultType
 import pytest
 
 from custom_components.bouncie.config_flow import InvalidAuth
-from custom_components.bouncie.const import (
-    DOMAIN,
-    NEW_HEARTBEAT_ENDPOINT,
-    NEW_INSTALLATION_ENDPOINT,
-)
+from custom_components.bouncie.const import DOMAIN
 
 
 @pytest.fixture(autouse=True)
@@ -27,12 +22,6 @@ def bypass_setup_fixture():
 
 async def test_form(hass, aioclient_mock) -> None:
     """Test we get the form."""
-    aioclient_mock.post(
-        NEW_INSTALLATION_ENDPOINT, status=201, json={"id": str(uuid.uuid4())}
-    )
-    aioclient_mock.post(
-        NEW_HEARTBEAT_ENDPOINT, status=201, json={"message": "All good."}
-    )
 
     result = await hass.config_entries.flow.async_init(
         DOMAIN, context={"source": config_entries.SOURCE_USER}
