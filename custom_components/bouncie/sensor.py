@@ -95,6 +95,7 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         name="Car Speed",
         state_class=SensorStateClass.MEASUREMENT,
         device_class=SensorDeviceClass.SPEED,
+        suggested_unit_of_measurement="mph",
         value_fn=lambda vehicle_info: int(vehicle_info["stats"]["speed"]),
         extra_attrs_fn=update_car_stats_attributes,
     ),
