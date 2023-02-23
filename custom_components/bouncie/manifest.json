@@ -1,11 +1,11 @@
 {
   "domain": "bouncie",
   "name": "Bouncie",
+  "codeowners": ["@mandarons"],
   "config_flow": true,
   "documentation": "https://github.com/mandarons/ha-bouncie",
+  "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/mandarons/ha-bouncie/issues",
   "requirements": ["bounciepy==0.2.0"],
-  "codeowners": ["@mandarons"],
-  "iot_class": "cloud_polling",
   "version": "0.2.2"
 }
