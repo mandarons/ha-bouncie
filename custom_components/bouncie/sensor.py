@@ -58,7 +58,6 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         key="car-info",
         icon="mdi:car",
         name="Car Info",
-        state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda vehicle_info: "Running"
         if vehicle_info["stats"]["isRunning"]
         else "Not Running",
