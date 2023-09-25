@@ -39,6 +39,7 @@ class BouncieVehicleTracker(
         """Initialize car location entity."""
         self._vehicle_info = vehicle_info
         self._attr_has_entity_name = True
+        self._attr_name = None
         self._attr_unique_id = slugify(f'{self._vehicle_info["nickName"]} tracker')
         self._attr_device_info = DeviceInfo(
             identifiers={(const.DOMAIN, self._vehicle_info["vin"])},

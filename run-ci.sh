@@ -19,7 +19,7 @@ echo "Linting ..." &&
     # echo "Type checking ..." &&
     # mypy custom_components/ &&
     echo "Testing ..." &&
-    pytest --cov --cov-report html --cov-report xml --alluredir=./allure-results
+    pytest --cov --cov-report html --cov-report xml --alluredir=./allure-results --cov-config=Coveragerc --cov-fail-under=100
     echo "Reporting ..." &&
     allure generate --clean
 echo "Done."
