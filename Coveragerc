@@ -1,0 +1,8 @@
+[run]
+ include =
+    custom_components/*
+    tests/*
+ [report]
+ include =
+    custom_components/*
+    tests/*
