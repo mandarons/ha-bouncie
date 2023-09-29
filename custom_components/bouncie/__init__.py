@@ -50,4 +50,17 @@ def patch_missing_data(vehicle_info):
             "status": "Not available",
             "lastUpdated": "Not available",
         }
+    if "mil" not in vehicle_info["stats"]:
+        vehicle_info["stats"]["mil"] = {
+            "milOn": "Not available",
+            "lastUpdated": "Not available",
+        }
+    if "location" not in vehicle_info["stats"]:
+        vehicle_info["stats"]["location"] = {
+            "address": "Not available",
+        }
+    if "fuelLevel" not in vehicle_info["stats"]:
+        vehicle_info["stats"]["fuelLevel"] = 0
+    if "nickname" not in vehicle_info:
+        vehicle_info["nickName"] = "%s %s %s" % ( vehicle_info[const.VEHICLE_MODEL_KEY]["year"], vehicle_info[const.VEHICLE_MODEL_KEY]["make"], vehicle_info[const.VEHICLE_MODEL_KEY]["name"] )
     return vehicle_info
