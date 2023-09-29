@@ -1,4 +1,6 @@
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-3.10-bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/python:0-3.10
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN \
     apt-get update \
