@@ -18,6 +18,8 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from . import BouncieDataUpdateCoordinator, const, patch_missing_data
 
+import json
+
 ATTRIBUTION = "Data provided by Bouncie"
 PARALLEL_UPDATES = 1
 
@@ -54,6 +56,15 @@ def update_car_info_attributes(vehicle_info):
 
 
 SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
+    BouncieSensorEntityDescription(
+        key="car-last-update",
+        icon="mdi:code-json",
+        name="Last Update",
+        value_fn=lambda vehicle_info: vehicle_info["stats"]["lastUpdated"],
+        extra_attrs_fn=lambda vehicle_info: {
+            const.ATTR_VEHICLE_STATS_LAST_UPDATE_JSON_KEY: json.dumps(vehicle_info)
+        }
+    ),
     BouncieSensorEntityDescription(
         key="car-info",
         icon="mdi:car",
