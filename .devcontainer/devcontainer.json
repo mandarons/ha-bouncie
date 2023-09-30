@@ -1,28 +1,54 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+  "name": "Bouncie integration development",
   "context": "..",
   "dockerFile": "Dockerfile",
-  "name": "Bouncie integration development",
   "appPort": ["9123:8123"],
+  "containerEnv": {
+    "DEVCONTAINER": "1"
+  },
   "extensions": [
     "ms-python.python",
+    "ms-python.vscode-pylance",
     "github.vscode-pull-request-github",
     "ryanluker.vscode-coverage-gutters",
-    "ms-python.vscode-pylance"
+    "visualstudioexptteam.vscodeintellicode",
+    "redhat.vscode-yaml",
+    "esbenp.prettier-vscode"
   ],
   "settings": {
-    "files.eol": "\n",
-    "editor.tabSize": 4,
-    "terminal.integrated.shell.linux": "/bin/bash",
-    "python.pythonPath": "/usr/bin/python3",
-    "python.analysis.autoSearchPaths": false,
-    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "/usr/local/bin/python",
     "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+    "python.linting.flake8Path": "/usr/local/bin/flake8",
+    "python.linting.pycodestylePath": "/usr/local/bin/pycodestyle",
+    "python.linting.pydocstylePath": "/usr/local/bin/pydocstyle",
+    "python.linting.mypyPath": "/usr/local/bin/mypy",
+    "python.linting.pylintPath": "/usr/local/bin/pylint",
     "python.formatting.provider": "black",
+    "python.testing.pytestArgs": ["--no-cov"],
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/usr/bin/zsh"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "yaml.customTags": [
+      "!input scalar",
+      "!secret scalar",
+      "!include_dir_named scalar",
+      "!include_dir_list scalar",
+      "!include_dir_merge_list scalar",
+      "!include_dir_merge_named scalar"
+    ]
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached"
+  ]
 }
