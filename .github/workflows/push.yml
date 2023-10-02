@@ -87,6 +87,9 @@ jobs:
             --cov custom_components.bouncie \
             -o console_output_style=count \
             -p no:sugar \
+            --cov-report html \
+            --cov-report xml \
+            --alluredir=./allure-results \
             --cov-fail-under=100 \
             tests && rm htmlcov/.gitignore
       - name: Upload coverage artifacts
