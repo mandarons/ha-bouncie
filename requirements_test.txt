@@ -1,4 +1,4 @@
-bounciepy
+bounciepy==0.3.0
 pytest-homeassistant-custom-component
 pre-commit
 allure-pytest==2.12.*
