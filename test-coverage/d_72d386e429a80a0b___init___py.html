@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">24 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">24<span class="text"> run</span></button>
+            <span class="text">32 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">32<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_config_flow_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2023-10-02 04:52 +0000
+            created at 2023-10-02 17:01 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -89,7 +89,7 @@
     <p class="run"><span class="n"><a id="t7" href="#t7">7</a></span><span class="t"><span class="key">from</span> <span class="nam">homeassistant</span><span class="op">.</span><span class="nam">const</span> <span class="key">import</span> <span class="nam">CONF_SCAN_INTERVAL</span><span class="op">,</span> <span class="nam">Platform</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t8" href="#t8">8</a></span><span class="t"><span class="key">from</span> <span class="nam">homeassistant</span><span class="op">.</span><span class="nam">core</span> <span class="key">import</span> <span class="nam">Config</span><span class="op">,</span> <span class="nam">HomeAssistant</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t9" href="#t9">9</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="key">from</span> <span class="op">.</span><span class="nam">const</span> <span class="key">import</span> <span class="nam">DOMAIN</span><span class="op">,</span> <span class="nam">LOGGER</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t10" href="#t10">10</a></span><span class="t"><span class="key">from</span> <span class="op">.</span><span class="nam">const</span> <span class="key">import</span> <span class="nam">DOMAIN</span><span class="op">,</span> <span class="nam">LOGGER</span><span class="op">,</span> <span class="nam">VEHICLE_MODEL_KEY</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t11" href="#t11">11</a></span><span class="t"><span class="key">from</span> <span class="op">.</span><span class="nam">coordinator</span> <span class="key">import</span> <span class="nam">BouncieDataUpdateCoordinator</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t12" href="#t12">12</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t13" href="#t13">13</a></span><span class="t"><span class="nam">PLATFORMS</span><span class="op">:</span> <span class="nam">list</span><span class="op">[</span><span class="nam">Platform</span><span class="op">]</span> <span class="op">=</span> <span class="op">[</span><span class="nam">Platform</span><span class="op">.</span><span class="nam">SENSOR</span><span class="op">,</span> <span class="nam">Platform</span><span class="op">.</span><span class="nam">DEVICE_TRACKER</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
@@ -132,7 +132,26 @@
     <p class="pln"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t">            <span class="str">"status"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">            <span class="str">"lastUpdated"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">        <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">    <span class="key">return</span> <span class="nam">vehicle_info</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">    <span class="key">if</span> <span class="str">"mil"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"mil"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t">            <span class="str">"milOn"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">            <span class="str">"lastUpdated"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t57" href="#t57">57</a></span><span class="t">        <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t58" href="#t58">58</a></span><span class="t">    <span class="key">if</span> <span class="str">"location"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t59" href="#t59">59</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"location"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t60" href="#t60">60</a></span><span class="t">            <span class="str">"address"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t61" href="#t61">61</a></span><span class="t">        <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t62" href="#t62">62</a></span><span class="t">    <span class="key">if</span> <span class="str">"fuelLevel"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t63" href="#t63">63</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"fuelLevel"</span><span class="op">]</span> <span class="op">=</span> <span class="op">-</span><span class="num">1</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t64" href="#t64">64</a></span><span class="t">    <span class="key">if</span> <span class="str">"nickName"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t65" href="#t65">65</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"nickName"</span><span class="op">]</span> <span class="op">=</span> <span class="op">(</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t66" href="#t66">66</a></span><span class="t">            <span class="nam">str</span><span class="op">(</span><span class="nam">vehicle_info</span><span class="op">[</span><span class="nam">VEHICLE_MODEL_KEY</span><span class="op">]</span><span class="op">[</span><span class="str">"year"</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t67" href="#t67">67</a></span><span class="t">            <span class="op">+</span> <span class="str">" "</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t68" href="#t68">68</a></span><span class="t">            <span class="op">+</span> <span class="nam">str</span><span class="op">(</span><span class="nam">vehicle_info</span><span class="op">[</span><span class="nam">VEHICLE_MODEL_KEY</span><span class="op">]</span><span class="op">[</span><span class="str">"make"</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t69" href="#t69">69</a></span><span class="t">            <span class="op">+</span> <span class="str">" "</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t70" href="#t70">70</a></span><span class="t">            <span class="op">+</span> <span class="nam">str</span><span class="op">(</span><span class="nam">vehicle_info</span><span class="op">[</span><span class="nam">VEHICLE_MODEL_KEY</span><span class="op">]</span><span class="op">[</span><span class="str">"name"</span><span class="op">]</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t71" href="#t71">71</a></span><span class="t">        <span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t72" href="#t72">72</a></span><span class="t">    <span class="key">return</span> <span class="nam">vehicle_info</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -142,7 +161,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_config_flow_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2023-10-02 04:52 +0000
+            created at 2023-10-02 17:01 +0000
         </p>
     </div>
 </footer>
