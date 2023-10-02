@@ -71,4 +71,4 @@ jobs:
       - name: Install requirements
         run: python3 -m pip install -r requirements_test.txt
       - name: Run tests
-        run: run-ci.sh
+        run: ./run-ci.sh
