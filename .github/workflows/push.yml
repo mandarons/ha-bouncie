@@ -78,7 +78,17 @@ jobs:
       - name: Install requirements
         run: python3 -m pip install -r requirements_test.txt
       - name: Run tests
-        run: run-ci.sh && rm htmlcov/.gitignore
+        run: |
+          pytest \
+            -qq \
+            --timeout=9 \
+            --durations=10 \
+            -n auto \
+            --cov custom_components.bouncie \
+            -o console_output_style=count \
+            -p no:sugar \
+            --cov-fail-under=100 \
+            tests && rm htmlcov/.gitignore
       - name: Upload coverage artifacts
         uses: actions/upload-artifact@v3
         if: ${{ success() }}
