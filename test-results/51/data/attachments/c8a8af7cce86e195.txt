@@ -1,0 +1,11 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+ERROR:homeassistant.config_entries:Error unloading entry Bouncie for bouncie
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.10.13/x64/lib/python3.10/site-packages/homeassistant/config_entries.py", line 546, in async_unload
+    result = await component.async_unload_entry(hass, self)
+  File "/home/runner/work/ha-bouncie/ha-bouncie/custom_components/bouncie/__init__.py", line 41, in async_unload_entry
+    hass.data[DOMAIN].pop(entry.entry_id)
+KeyError: 'bouncie'

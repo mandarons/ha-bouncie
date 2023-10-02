@@ -1,0 +1,12 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+INFO:homeassistant.loader:Loaded device_tracker from homeassistant.components.device_tracker
+INFO:homeassistant.loader:Loaded zone from homeassistant.components.zone
+INFO:homeassistant.setup:Setting up zone
+INFO:homeassistant.setup:Setup of domain zone took 0.0 seconds
+INFO:homeassistant.setup:Setting up device_tracker
+INFO:homeassistant.setup:Setup of domain device_tracker took 0.0 seconds
+INFO:homeassistant.components.device_tracker:Setting up device_tracker.bouncie
+INFO:homeassistant.helpers.entity_registry:Registered new device_tracker.bouncie entity: device_tracker.my_prius
