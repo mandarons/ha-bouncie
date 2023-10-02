@@ -60,7 +60,7 @@ def patch_missing_data(vehicle_info):
             "address": "Not available",
         }
     if "fuelLevel" not in vehicle_info["stats"]:
-        vehicle_info["stats"]["fuelLevel"] = 0
+        vehicle_info["stats"]["fuelLevel"] = -1
     if "nickName" not in vehicle_info:
         vehicle_info["nickName"] = (
             str(vehicle_info[VEHICLE_MODEL_KEY]["year"])

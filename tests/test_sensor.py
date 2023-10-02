@@ -135,3 +135,59 @@ async def test_battery_info_missing(
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_battery")
     assert state.state == "Not available"
+
+
+async def test_stats_mil_missing(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test battery info missing from bouncie server."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    del updated_response[0]["stats"]["mil"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_mil")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_mil")
+    assert state.state == "Not available"
+
+
+async def test_stats_location_missing(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test battery info missing from bouncie server."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    del updated_response[0]["stats"]["location"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_address")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_address")
+    assert state.state == "Not available"
+
+
+async def test_stats_fuel_missing(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test battery info missing from bouncie server."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    del updated_response[0]["stats"]["fuelLevel"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_fuel")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_fuel")
+    assert state.state == "-1"
+
+
+async def test_nickname_missing(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test battery info missing from bouncie server."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    del updated_response[0]["nickName"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.2007_toyota_prius_car_info")
+    assert entry is not None
+    entry = entity_registry.async_get("sensor.my_prious_car_info")
+    assert entry is None
