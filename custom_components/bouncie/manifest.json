@@ -6,6 +6,6 @@
   "documentation": "https://github.com/mandarons/ha-bouncie",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/mandarons/ha-bouncie/issues",
-  "requirements": ["bounciepy==0.2.0"],
+  "requirements": ["bounciepy==0.3.0"],
   "version": "0.2.2"
 }
