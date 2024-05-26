@@ -61,7 +61,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [license-shield]: https://img.shields.io/github/license/mandarons/ha-bouncie.svg
 [releases-shield]: https://img.shields.io/github/v/release/mandarons/ha-bouncie
 [releases]: https://github.com/mandarons/ha-bouncie/releases
-[discord]: https://discord.gg/HfAXY2ykhp
+[discord]: https://discord.gg/rPaGYqZW
 [discord-badge]: https://img.shields.io/discord/871555550444408883
 [github-sponsors]: https://github.com/sponsors/mandarons
 [github-sponsors-badge]: https://img.shields.io/github/sponsors/mandarons
