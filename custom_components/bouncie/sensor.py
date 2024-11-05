@@ -63,7 +63,7 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         value_fn=lambda vehicle_info: vehicle_info["stats"]["lastUpdated"],
         extra_attrs_fn=lambda vehicle_info: {
             const.ATTR_VEHICLE_STATS_LAST_UPDATE_JSON_KEY: json.dumps(vehicle_info)
-        }
+        },
     ),
     BouncieSensorEntityDescription(
         key="car-info",
@@ -94,7 +94,7 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         key="car-fuel",
         icon="mdi:gas-station",
         name="Car Fuel",
-        device_class=SensorDeviceClass.BATTERY,
+        device_class=SensorDeviceClass.VOLUME_STORAGE,
         native_unit_of_measurement="%",
         value_fn=lambda vehicle_info: int(vehicle_info["stats"]["fuelLevel"]),
         extra_attrs_fn=update_car_stats_attributes,
@@ -125,9 +125,9 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         key="car-battery",
         icon="mdi:car-battery",
         name="Car Battery",
-        value_fn=lambda vehicle_info: vehicle_info["stats"]["battery"]["status"],
+        value_fn=lambda vehicle_info: vehicle_info["stats"]["mil"]["battery"]["status"],
         extra_attrs_fn=lambda vehicle_info: {
-            const.ATTR_VEHICLE_BATTERY_LAST_UPDATED_KEY: vehicle_info["stats"][
+            const.ATTR_VEHICLE_BATTERY_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"][
                 "battery"
             ]["lastUpdated"]
         },
