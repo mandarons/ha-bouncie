@@ -1,0 +1,11 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+ERROR:custom_components.bouncie.const:
+Traceback (most recent call last):
+  File "/home/runner/work/ha-bouncie/ha-bouncie/custom_components/bouncie/config_flow.py", line 64, in async_step_user
+    info = await validate_input(self.hass, user_input)
+  File "/home/runner/work/ha-bouncie/ha-bouncie/custom_components/bouncie/config_flow.py", line 41, in validate_input
+    result = await bouncie_client.get_access_token()
+  File "/opt/hostedtoolcache/Python/3.10.15/x64/lib/python3.10/unittest/mock.py", line 2234, in _execute_mock_call
+    raise effect
+Exception

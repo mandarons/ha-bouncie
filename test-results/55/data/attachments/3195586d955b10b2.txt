@@ -1,0 +1,16 @@
+INFO     homeassistant.loader:loader.py:638 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:576 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO     homeassistant.setup:setup.py:257 Setting up bouncie
+INFO     homeassistant.setup:setup.py:308 Setup of domain bouncie took 0.0 seconds
+INFO     homeassistant.loader:loader.py:638 Loaded sensor from homeassistant.components.sensor
+INFO     homeassistant.setup:setup.py:257 Setting up sensor
+INFO     homeassistant.setup:setup.py:308 Setup of domain sensor took 0.0 seconds
+INFO     homeassistant.components.sensor:entity_platform.py:339 Setting up sensor.bouncie
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_last_update
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_info
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_odometer
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_address
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_fuel
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_speed
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_mil
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_battery
