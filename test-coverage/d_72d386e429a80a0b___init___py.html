@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_config_flow_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2024-11-05 20:50 +0000
+            created at 2024-11-06 04:30 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -128,14 +128,14 @@
     <p class="pln"><span class="n"><a id="t46" href="#t46">46</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t47" href="#t47">47</a></span><span class="t"><span class="key">def</span> <span class="nam">patch_missing_data</span><span class="op">(</span><span class="nam">vehicle_info</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t48" href="#t48">48</a></span><span class="t">    <span class="str">"""Fill in missing data."""</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t49" href="#t49">49</a></span><span class="t">    <span class="key">if</span> <span class="str">"battery"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"battery"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">            <span class="str">"status"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t49" href="#t49">49</a></span><span class="t">    <span class="key">if</span> <span class="str">"mil"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"mil"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">            <span class="str">"milOn"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">            <span class="str">"lastUpdated"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">        <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">    <span class="key">if</span> <span class="str">"mil"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"mil"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">            <span class="str">"milOn"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">    <span class="key">elif</span> <span class="str">"battery"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"mil"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t">        <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">[</span><span class="str">"mil"</span><span class="op">]</span><span class="op">[</span><span class="str">"battery"</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">            <span class="str">"status"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t57" href="#t57">57</a></span><span class="t">            <span class="str">"lastUpdated"</span><span class="op">:</span> <span class="str">"Not available"</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t58" href="#t58">58</a></span><span class="t">        <span class="op">}</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t59" href="#t59">59</a></span><span class="t">    <span class="key">if</span> <span class="str">"location"</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">vehicle_info</span><span class="op">[</span><span class="str">"stats"</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -162,7 +162,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_config_flow_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2024-11-05 20:50 +0000
+            created at 2024-11-06 04:30 +0000
         </p>
     </div>
 </footer>
