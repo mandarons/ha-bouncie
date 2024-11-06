@@ -65,8 +65,14 @@ MOCK_VEHICLES_RESPONSE = [
             "fuelLevel": 29.411764705882355,
             "isRunning": False,
             "speed": 123.2446465,
-            "mil": {"milOn": False, "lastUpdated": "2022-11-23T01:38:55.000Z"},
-            "battery": {"status": "normal", "lastUpdated": "2022-11-23T01:37:41.000Z"},
+            "mil": {
+                "milOn": False,
+                "lastUpdated": "2022-11-23T01:38:55.000Z",
+                "battery": {
+                    "status": "normal",
+                    "lastUpdated": "2022-11-23T01:37:41.000Z",
+                },
+            },
         },
     },
 ]
@@ -84,8 +90,14 @@ MOCK_VEHICLES_IMEI_RESPONSE = [
             "fuelLevel": 27.3,
             "isRunning": False,
             "speed": 0,
-            "mil": {"milOn": False, "lastUpdated": "2020-01-01 12:00:00:000Z"},
-            "battery": {"status": "normal", "lastUpdated": "2020-04-25 12:00:00:000Z"},
+            "mil": {
+                "milOn": False,
+                "lastUpdated": "2020-01-01 12:00:00:000Z",
+                "battery": {
+                    "status": "normal",
+                    "lastUpdated": "2020-04-25 12:00:00:000Z",
+                },
+            },
         },
     }
 ]

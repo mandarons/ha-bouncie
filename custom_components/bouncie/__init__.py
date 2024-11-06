@@ -46,14 +46,14 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
 def patch_missing_data(vehicle_info):
     """Fill in missing data."""
-    if "battery" not in vehicle_info["stats"]:
-        vehicle_info["stats"]["battery"] = {
-            "status": "Not available",
-            "lastUpdated": "Not available",
-        }
     if "mil" not in vehicle_info["stats"]:
         vehicle_info["stats"]["mil"] = {
             "milOn": "Not available",
+            "lastUpdated": "Not available",
+        }
+    elif "battery" not in vehicle_info["stats"]["mil"]:
+        vehicle_info["stats"]["mil"]["battery"] = {
+            "status": "Not available",
             "lastUpdated": "Not available",
         }
     if "location" not in vehicle_info["stats"]:
