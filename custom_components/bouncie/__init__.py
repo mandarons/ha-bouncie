@@ -51,8 +51,8 @@ def patch_missing_data(vehicle_info):
             "milOn": "Not available",
             "lastUpdated": "Not available",
         }
-    elif "battery" not in vehicle_info["stats"]["mil"]:
-        vehicle_info["stats"]["mil"]["battery"] = {
+    elif "battery" not in vehicle_info["stats"]:
+        vehicle_info["stats"]["battery"] = {
             "status": "Not available",
             "lastUpdated": "Not available",
         }
