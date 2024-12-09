@@ -68,10 +68,10 @@ MOCK_VEHICLES_RESPONSE = [
             "mil": {
                 "milOn": False,
                 "lastUpdated": "2022-11-23T01:38:55.000Z",
-                "battery": {
-                    "status": "normal",
-                    "lastUpdated": "2022-11-23T01:37:41.000Z",
-                },
+            },
+            "battery": {
+                "status": "normal",
+                "lastUpdated": "2022-11-23T01:37:41.000Z",
             },
         },
     },
@@ -93,10 +93,10 @@ MOCK_VEHICLES_IMEI_RESPONSE = [
             "mil": {
                 "milOn": False,
                 "lastUpdated": "2020-01-01 12:00:00:000Z",
-                "battery": {
-                    "status": "normal",
-                    "lastUpdated": "2020-04-25 12:00:00:000Z",
-                },
+            },
+            "battery": {
+                "status": "normal",
+                "lastUpdated": "2020-04-25 12:00:00:000Z",
             },
         },
     }
