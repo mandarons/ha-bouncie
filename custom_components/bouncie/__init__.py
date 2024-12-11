@@ -51,7 +51,7 @@ def patch_missing_data(vehicle_info):
             "milOn": "Not available",
             "lastUpdated": "Not available",
         }
-    elif "battery" not in vehicle_info["stats"]:
+    if "battery" not in vehicle_info["stats"]:
         vehicle_info["stats"]["battery"] = {
             "status": "Not available",
             "lastUpdated": "Not available",
@@ -70,4 +70,9 @@ def patch_missing_data(vehicle_info):
             + " "
             + str(vehicle_info[VEHICLE_MODEL_KEY]["name"])
         )
+    if "qualifiedDtcList" not in vehicle_info["stats"]["mil"]:
+        vehicle_info["stats"]["mil"]["dtcCount"] = 0
+    else:
+        vehicle_info["stats"]["mil"]["dtcCount"] = len(vehicle_info["stats"]["mil"]["qualifiedDtcList"])
+
     return vehicle_info
