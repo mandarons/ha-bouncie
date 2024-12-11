@@ -105,6 +105,16 @@ async def test_car_battery_sensor(
         == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["battery"]["status"]
     )
 
+async def test_stats_mil_dtc_count(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_mil_count")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_mil_count")
+    assert int(state.state) == 0
 
 async def test_sensor_update(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
@@ -194,3 +204,4 @@ async def test_nickname_missing(
     assert entry is not None
     entry = entity_registry.async_get("sensor.my_prious_car_info")
     assert entry is None
+

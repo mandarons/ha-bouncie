@@ -121,6 +121,17 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         },
     ),
     BouncieSensorEntityDescription(
+        key="car-mil-dtc-count",
+        icon="mdi:engine",
+        name="Car MIL Count",
+        state_class=SensorStateClass.TOTAL,
+        value_fn=lambda vehicle_info: vehicle_info["stats"]["mil"]["dtcCount"],
+        extra_attrs_fn=lambda vehicle_info: {
+            const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"][
+                "lastUpdated"]
+        },
+    ),
+    BouncieSensorEntityDescription(
         key="car-battery",
         icon="mdi:car-battery",
         name="Car Battery",

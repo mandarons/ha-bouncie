@@ -75,6 +75,49 @@ MOCK_VEHICLES_RESPONSE = [
             },
         },
     },
+    {
+        "model": {"make": "TOYOTA", "name": "PRIUS", "year": 2007},
+        "standardEngine": "1.5L I4",
+        "vin": "broken-toyota-prius-vin",
+        "imei": "broken-toyota-prius-imei",
+        "nickName": "my broken prius",
+        "stats": {
+            "localTimeZone": "-0500",
+            "lastUpdated": "2022-11-23T01:53:57.000Z",
+            "odometer": 120508.63004550002,
+            "location": {
+                "lat": 40.6411124,
+                "lon": -73.9960607,
+                "heading": 146,
+                "address": "1011 45th St, Brooklyn, NY 11219, USA",
+            },
+            "fuelLevel": 29.411764705882355,
+            "isRunning": False,
+            "speed": 0,
+            "mil": {
+                "milOn": True,
+                "lastUpdated": "2024-01-01 12:00:00:000Z",
+                "qualifiedDtcList": [
+                    {
+                        "code": "P0A80",
+                        "name": [
+                            "Replace hybrid battery pack"
+                        ]
+                    },
+                    {
+                        "code": "P0420",
+                        "name": [
+                            "Catalyst system efficiency below threshold (bank 1)"
+                        ]
+                    },
+                ]
+            },
+            "battery": {
+                "status": "normal",
+                "lastUpdated": "2022-11-23T01:37:41.000Z",
+            },
+        },
+    },
 ]
 MOCK_VEHICLES_IMEI_RESPONSE = [
     {
