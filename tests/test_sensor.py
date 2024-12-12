@@ -1,4 +1,5 @@
 """Tests for sensor.py."""
+import json
 from datetime import timedelta
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
@@ -119,8 +120,33 @@ async def test_stats_dtc_count(
     entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
     assert entry is not None
     state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
-    assert int(state.state) == 2
+    assert int(state.state) == 3
     entry = entity_registry.async_get("sensor.my_invalid_prius_car_dtc_count")
+    assert entry is None
+
+
+async def test_stats_dtc_details(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test getting all vehicles."""
+    await setup_platform(hass, SENSOR_DOMAIN)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_dtc_details")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_dtc_details")
+    assert state.state == "Not available"
+    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_details")
+    assert entry is not None
+    state = hass.states.get("sensor.my_broken_prius_car_dtc_details")
+    dtc_list = json.loads(state.state.replace("\'", "\""))
+    assert len(dtc_list) == len(const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"])
+    assert dtc_list[0]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["code"]
+    assert dtc_list[0]["desc"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["name"][0]
+    assert dtc_list[1]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["code"]
+    assert dtc_list[1]["desc"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["name"][0]
+    assert dtc_list[2]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][2]["code"]
+    assert dtc_list[2]["desc"] == "Not available"
+    entry = entity_registry.async_get("sensor.my_invalid_prius_car_dtc_details")
     assert entry is None
 
 

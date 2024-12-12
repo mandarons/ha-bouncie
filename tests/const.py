@@ -101,7 +101,8 @@ MOCK_VEHICLES_RESPONSE = [
                     {
                         "code": "P0A80",
                         "name": [
-                            "Replace hybrid battery pack"
+                            "Replace hybrid battery pack",
+                            "Call Toyota"
                         ]
                     },
                     {
@@ -109,6 +110,9 @@ MOCK_VEHICLES_RESPONSE = [
                         "name": [
                             "Catalyst system efficiency below threshold (bank 1)"
                         ]
+                    },
+                    {
+                        "code": "P0666",
                     },
                 ]
             },
