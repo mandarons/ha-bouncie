@@ -1,5 +1,4 @@
 """Tests for sensor.py."""
-import json
 from datetime import timedelta
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
@@ -125,27 +124,28 @@ async def test_stats_dtc_count(
     assert entry is None
 
 
-async def test_stats_dtc_details(
+async def test_stats_dtc_count_extra_attr(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
     """Test getting all vehicles."""
     await setup_platform(hass, SENSOR_DOMAIN)
     entity_registry = er.async_get(hass)
-    entry = entity_registry.async_get("sensor.my_prius_car_dtc_details")
+    entry = entity_registry.async_get("sensor.my_prius_car_dtc_count")
     assert entry is not None
-    state = hass.states.get("sensor.my_prius_car_dtc_details")
-    assert state.state == "Not available"
-    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_details")
+    state = hass.states.get("sensor.my_prius_car_dtc_count")
+    assert state.attributes["dtc_codes"] == "Not available"
+    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
     assert entry is not None
-    state = hass.states.get("sensor.my_broken_prius_car_dtc_details")
-    dtc_list = json.loads(state.state.replace("\'", "\""))
+    state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
+    dtc_list = state.attributes["dtc_codes"]
     assert len(dtc_list) == len(const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"])
     assert dtc_list[0]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["code"]
-    assert dtc_list[0]["desc"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["name"][0]
+    assert dtc_list[0]["name"][0] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["name"][0]
+    assert dtc_list[0]["name"][1] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["name"][1]
     assert dtc_list[1]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["code"]
-    assert dtc_list[1]["desc"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["name"][0]
+    assert dtc_list[1]["name"][0] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["name"][0]
     assert dtc_list[2]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][2]["code"]
-    assert dtc_list[2]["desc"] == "Not available"
+    assert "name" not in dtc_list[2]
     entry = entity_registry.async_get("sensor.my_invalid_prius_car_dtc_details")
     assert entry is None
 

@@ -55,6 +55,14 @@ def update_car_info_attributes(vehicle_info):
     return {**extra_attrs, **update_car_stats_attributes(vehicle_info)}
 
 
+def update_dtc_info_attributes(vehicle_info):
+    """Return DTC details"""
+    return {
+        const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"]["lastUpdated"],
+        const.ATTR_VEHICLE_DTC_CODES: vehicle_info["stats"]["mil"]["dtcDetails"]
+    }
+
+
 SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
     BouncieSensorEntityDescription(
         key="car-last-update",
@@ -126,20 +134,7 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         name="Car DTC Count",
         state_class=SensorStateClass.TOTAL,
         value_fn=lambda vehicle_info: int(vehicle_info["stats"]["mil"]["dtcCount"]),
-        extra_attrs_fn=lambda vehicle_info: {
-            const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"][
-                "lastUpdated"]
-        },
-    ),
-    BouncieSensorEntityDescription(
-        key="car-dtc-details",
-        icon="mdi:engine",
-        name="Car DTC Details",
-        value_fn=lambda vehicle_info: vehicle_info["stats"]["mil"]["dtcDetails"],
-        extra_attrs_fn=lambda vehicle_info: {
-            const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"][
-                "lastUpdated"]
-        },
+        extra_attrs_fn=update_dtc_info_attributes,
     ),
     BouncieSensorEntityDescription(
         key="car-battery",
