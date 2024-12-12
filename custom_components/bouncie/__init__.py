@@ -72,7 +72,15 @@ def patch_missing_data(vehicle_info):
         )
     if "qualifiedDtcList" not in vehicle_info["stats"]["mil"]:
         vehicle_info["stats"]["mil"]["dtcCount"] = 0
+        vehicle_info["stats"]["mil"]["dtcDetails"] = "Not available"
     else:
         vehicle_info["stats"]["mil"]["dtcCount"] = len(vehicle_info["stats"]["mil"]["qualifiedDtcList"])
+        a = []
+        for dtc in vehicle_info["stats"]["mil"]["qualifiedDtcList"]:
+            if "name" in dtc:
+                a.append({"code": dtc["code"], "desc": dtc["name"][0]})
+            else:
+                a.append({"code": dtc["code"], "desc": "Not available"})
+        vehicle_info["stats"]["mil"]["dtcDetails"] = a
 
     return vehicle_info
