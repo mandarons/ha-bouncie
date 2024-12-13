@@ -57,10 +57,10 @@ def update_car_info_attributes(vehicle_info):
 
 def update_dtc_info_attributes(vehicle_info):
     """Return DTC details"""
-    extra_attrs = {}
-    extra_attrs[const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY] = vehicle_info["stats"]["mil"]["lastUpdated"]
-    extra_attrs[const.ATTR_VEHICLE_DTC_CODES] = vehicle_info["stats"]["mil"]["dtcDetails"]
-    return extra_attrs
+    return {
+        const.ATTR_VEHICLE_MIL_LAST_UPDATED_KEY: vehicle_info["stats"]["mil"]["lastUpdated"],
+        const.ATTR_VEHICLE_DTC_CODES: vehicle_info["stats"]["mil"]["dtcDetails"]
+    }
 
 
 SENSORS: tuple[BouncieSensorEntityDescription, ...] = (

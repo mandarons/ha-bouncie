@@ -187,15 +187,51 @@ async def test_battery_info_missing(
 async def test_stats_mil_missing(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
-    """Test battery info missing from bouncie server."""
+    """Test mil info missing from bouncie server."""
     updated_response = list(const.MOCK_VEHICLES_RESPONSE)
     del updated_response[0]["stats"]["mil"]
+    del updated_response[1]["stats"]["mil"]
     await setup_platform(hass, SENSOR_DOMAIN, updated_response)
     entity_registry = er.async_get(hass)
     entry = entity_registry.async_get("sensor.my_prius_car_mil")
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_mil")
     assert state.state == "Not available"
+    entry = entity_registry.async_get("sensor.my_prius_car_dtc_count")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_dtc_count")
+    assert state.attributes["dtc_codes"] == "Not available"
+    state = hass.states.get("sensor.my_broken_prius_car_mil")
+    assert state.state == "Not available"
+    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
+    assert entry is not None
+    state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
+    assert state.attributes["dtc_codes"] == "Not available"
+
+
+async def test_stats_mil_dtc_is_list(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test odd mil info when qualifiedDtcList is returned as an empty list."""
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    updated_response[0]["stats"]["mil"]["qualifiedDtcList"] = []
+    updated_response[1]["stats"]["mil"]["qualifiedDtcList"] = []
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_mil")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_mil")
+    assert state.state == "Not available"
+    entry = entity_registry.async_get("sensor.my_prius_car_dtc_count")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_dtc_count")
+    assert state.attributes["dtc_codes"] == "Not available"
+    state = hass.states.get("sensor.my_broken_prius_car_mil")
+    assert state.state == "Not available"
+    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
+    assert entry is not None
+    state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
+    assert state.attributes["dtc_codes"] == "Not available"
 
 
 async def test_stats_location_missing(
@@ -215,7 +251,7 @@ async def test_stats_location_missing(
 async def test_stats_fuel_missing(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
-    """Test battery info missing from bouncie server."""
+    """Test fuel info missing from bouncie server."""
     updated_response = list(const.MOCK_VEHICLES_RESPONSE)
     del updated_response[0]["stats"]["fuelLevel"]
     await setup_platform(hass, SENSOR_DOMAIN, updated_response)
@@ -229,7 +265,7 @@ async def test_stats_fuel_missing(
 async def test_nickname_missing(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
-    """Test battery info missing from bouncie server."""
+    """Test nickname info missing from bouncie server."""
     updated_response = list(const.MOCK_VEHICLES_RESPONSE)
     del updated_response[0]["nickName"]
     await setup_platform(hass, SENSOR_DOMAIN, updated_response)
