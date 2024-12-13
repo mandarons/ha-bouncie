@@ -1,0 +1,35 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+INFO:homeassistant.loader:Loaded sensor from homeassistant.components.sensor
+INFO:homeassistant.setup:Setting up sensor
+INFO:homeassistant.setup:Setup of domain sensor took 0.0 seconds
+INFO:homeassistant.components.sensor:Setting up sensor.bouncie
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_last_update
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_info
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_odometer
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_address
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_fuel
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_speed
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_mil
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_dtc_count
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.2007_toyota_prius_car_battery
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_last_update
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_info
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_odometer
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_address
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_fuel
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_speed
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_mil
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_dtc_count
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_battery
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_last_update
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_info
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_odometer
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_address
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_fuel
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_speed
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_mil
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_dtc_count
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_battery
