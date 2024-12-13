@@ -70,7 +70,10 @@ def patch_missing_data(vehicle_info):
             + " "
             + str(vehicle_info[VEHICLE_MODEL_KEY]["name"])
         )
-    if "qualifiedDtcList" not in vehicle_info["stats"]["mil"]:
+    if (
+        "qualifiedDtcList" not in vehicle_info["stats"]["mil"]
+        or len(vehicle_info["stats"]["mil"]["qualifiedDtcList"]) == 0
+    ):
         vehicle_info["stats"]["mil"]["dtcCount"] = 0
         vehicle_info["stats"]["mil"]["dtcDetails"] = "Not available"
     else:
