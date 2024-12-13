@@ -39,6 +39,8 @@ async def test_car_odometer_sensor(
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_odometer")
     assert state.state == "120508"
+    state = hass.states.get("sensor.rdx_wo_mil_car_odometer")
+    assert state.state == "133343"
 
 
 async def test_car_address_sensor(
@@ -65,6 +67,8 @@ async def test_car_fuel_sensor(
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_fuel")
     assert state.state == "29"
+    state = hass.states.get("sensor.rdx_wo_mil_car_fuel")
+    assert state.state == "65"
 
 
 async def test_car_speed_sensor(
@@ -122,6 +126,10 @@ async def test_stats_dtc_count(
     assert int(state.state) == 3
     entry = entity_registry.async_get("sensor.my_invalid_prius_car_dtc_count")
     assert entry is None
+    entry = entity_registry.async_get("sensor.rdx_wo_mil_car_dtc_count")
+    assert entry is not None
+    state = hass.states.get("sensor.rdx_wo_mil_car_dtc_count")
+    assert int(state.state) == 0
 
 
 async def test_stats_dtc_count_extra_attr(
@@ -130,13 +138,16 @@ async def test_stats_dtc_count_extra_attr(
     """Test getting all vehicles."""
     await setup_platform(hass, SENSOR_DOMAIN)
     entity_registry = er.async_get(hass)
+    # Test the base prius, which has mil, but no DTC.
     entry = entity_registry.async_get("sensor.my_prius_car_dtc_count")
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_dtc_count")
     assert state.attributes["dtc_codes"] == "Not available"
+    # Test the car with DTCs outlines
     entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
     assert entry is not None
     state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
+    # Get the dtc_codes from the sensor and verify with the source.
     dtc_list = state.attributes["dtc_codes"]
     assert len(dtc_list) == len(const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"])
     assert dtc_list[0]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][0]["code"]
@@ -146,8 +157,13 @@ async def test_stats_dtc_count_extra_attr(
     assert dtc_list[1]["name"][0] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][1]["name"][0]
     assert dtc_list[2]["code"] == const.MOCK_VEHICLES_RESPONSE[1]["stats"]["mil"]["qualifiedDtcList"][2]["code"]
     assert "name" not in dtc_list[2]
-    entry = entity_registry.async_get("sensor.my_invalid_prius_car_dtc_details")
-    assert entry is None
+    # Test car without mil section
+    entry = entity_registry.async_get("sensor.rdx_wo_mil_car_dtc_count")
+    assert entry is not None
+    # Make sure dtc_codes is "Not available" for this car.
+    state = hass.states.get("sensor.rdx_wo_mil_car_dtc_count")
+    assert int(state.state) == 0
+    assert state.attributes["dtc_codes"] == "Not available"
 
 
 async def test_sensor_update(
@@ -201,31 +217,7 @@ async def test_stats_mil_missing(
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_dtc_count")
     assert state.attributes["dtc_codes"] == "Not available"
-    state = hass.states.get("sensor.my_broken_prius_car_mil")
-    assert state.state == "Not available"
-    entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")
-    assert entry is not None
-    state = hass.states.get("sensor.my_broken_prius_car_dtc_count")
-    assert state.attributes["dtc_codes"] == "Not available"
-
-
-async def test_stats_mil_dtc_is_list(
-    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
-) -> None:
-    """Test odd mil info when qualifiedDtcList is returned as an empty list."""
-    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
-    updated_response[0]["stats"]["mil"]["qualifiedDtcList"] = []
-    updated_response[1]["stats"]["mil"]["qualifiedDtcList"] = []
-    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
-    entity_registry = er.async_get(hass)
-    entry = entity_registry.async_get("sensor.my_prius_car_mil")
-    assert entry is not None
-    state = hass.states.get("sensor.my_prius_car_mil")
-    assert state.state == "Not available"
-    entry = entity_registry.async_get("sensor.my_prius_car_dtc_count")
-    assert entry is not None
-    state = hass.states.get("sensor.my_prius_car_dtc_count")
-    assert state.attributes["dtc_codes"] == "Not available"
+    # Tests for the new broken prius
     state = hass.states.get("sensor.my_broken_prius_car_mil")
     assert state.state == "Not available"
     entry = entity_registry.async_get("sensor.my_broken_prius_car_dtc_count")

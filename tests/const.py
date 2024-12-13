@@ -122,7 +122,34 @@ MOCK_VEHICLES_RESPONSE = [
             },
         },
     },
+    {
+        "model": { "make": "ACURA", "name": "RDX", "year": 2012 },
+        "nickName": "RDX",
+        "standardEngine": "2.3L I4",
+        "vin": "1118675309111",
+        "imei": "11111111111111",
+        "nickName": "rdx wo mil",
+        "stats": {
+            "localTimeZone": "-0600",
+            "lastUpdated": "2024-12-08T22:28:31.000Z",
+            "odometer": 133343.0070230003,
+            "location": {
+                "lat": 41.860620,
+                "lon": -87.61694,
+                "heading": 1,
+                "address": ""
+            },
+            "fuelLevel": 65.61835686419535,
+            "isRunning": False,
+            "speed": 0,
+            "battery": {
+                "status": "normal",
+                "lastUpdated": "2024-11-13T17:10:01.000Z"
+            }
+        }
+    }
 ]
+
 MOCK_VEHICLES_IMEI_RESPONSE = [
     {
         "model": {"make": "TOYOTA", "name": "PRIUS", "year": 2007},
