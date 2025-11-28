@@ -102,7 +102,6 @@ SENSORS: tuple[BouncieSensorEntityDescription, ...] = (
         key="car-fuel",
         icon="mdi:gas-station",
         name="Car Fuel",
-        device_class=SensorDeviceClass.VOLUME_STORAGE,
         native_unit_of_measurement="%",
         value_fn=lambda vehicle_info: int(vehicle_info["stats"]["fuelLevel"]),
         extra_attrs_fn=update_car_stats_attributes,
