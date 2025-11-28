@@ -56,6 +56,11 @@ def patch_missing_data(vehicle_info):
             "status": "Not available",
             "lastUpdated": "Not available",
         }
+    else:
+        if "status" not in vehicle_info["stats"]["battery"]:
+            vehicle_info["stats"]["battery"]["status"] = "Not available"
+        if "lastUpdated" not in vehicle_info["stats"]["battery"]:
+            vehicle_info["stats"]["battery"]["lastUpdated"] = "Not available"
     if "location" not in vehicle_info["stats"]:
         vehicle_info["stats"]["location"] = {
             "address": "Not available",
