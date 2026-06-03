@@ -8,23 +8,23 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Validate
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: HACS validation
-        uses: "hacs/action@main"
+        uses: "hacs/action@22.5.0"
         with:
           category: "integration"
           ignore: brands
 
       - name: Hassfest validation
-        uses: "home-assistant/actions/hassfest@master"
+        uses: "home-assistant/actions/hassfest@1.0.0"
 
   style:
     runs-on: "ubuntu-latest"
     name: Check style formatting
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - run: python3 -m pip install black
@@ -33,13 +33,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Set up Python 3.10
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - name: Cache pip dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         id: cache-dependencies
         with:
           path: ~/.cache/pip
@@ -56,13 +56,13 @@ jobs:
     name: Run tests
     steps:
       - name: Check out code from GitHub
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - name: Restore pip cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements*.txt') }}
