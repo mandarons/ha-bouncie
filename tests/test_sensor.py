@@ -204,9 +204,14 @@ async def test_battery_info_missing(
 async def test_battery_status_missing(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
-    """Test battery status missing but battery object exists from bouncie server."""
-    import copy
-    updated_response = copy.deepcopy(const.MOCK_VEHICLES_RESPONSE)
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    updated_response[0] = {
+        **updated_response[0],
+        "stats": {
+            **updated_response[0]["stats"],
+            "battery": dict(updated_response[0]["stats"]["battery"]),
+        },
+    }
     # Remove status but keep the battery object with lastUpdated
     del updated_response[0]["stats"]["battery"]["status"]
     await setup_platform(hass, SENSOR_DOMAIN, updated_response)
