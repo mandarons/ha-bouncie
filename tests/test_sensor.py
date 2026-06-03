@@ -222,6 +222,26 @@ async def test_battery_status_missing(
     assert state.state == "Not available"
 
 
+async def test_battery_last_updated_missing(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    updated_response = list(const.MOCK_VEHICLES_RESPONSE)
+    updated_response[0] = {
+        **updated_response[0],
+        "stats": {
+            **updated_response[0]["stats"],
+            "battery": dict(updated_response[0]["stats"]["battery"]),
+        },
+    }
+    del updated_response[0]["stats"]["battery"]["lastUpdated"]
+    await setup_platform(hass, SENSOR_DOMAIN, updated_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("sensor.my_prius_car_battery")
+    assert entry is not None
+    state = hass.states.get("sensor.my_prius_car_battery")
+    assert state.state == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["battery"]["status"]
+
+
 async def test_stats_mil_missing(
     hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
 ) -> None:
