@@ -212,7 +212,7 @@ async def test_battery_status_missing(
             "battery": dict(updated_response[0]["stats"]["battery"]),
         },
     }
-    # Remove status but keep the battery object with lastUpdated
+    # Remove status while keeping lastUpdated to verify fallback behavior.
     del updated_response[0]["stats"]["battery"]["status"]
     await setup_platform(hass, SENSOR_DOMAIN, updated_response)
     entity_registry = er.async_get(hass)
