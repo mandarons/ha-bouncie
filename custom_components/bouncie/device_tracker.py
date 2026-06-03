@@ -12,6 +12,11 @@ from . import BouncieDataUpdateCoordinator, const
 ATTRIBUTION = "Data provided by Bouncie"
 
 
+def _get_vehicle_name(vehicle_info: dict) -> str:
+    """Return a display name for a vehicle."""
+    return vehicle_info.get("nickName") or vehicle_info["vin"]
+
+
 async def async_setup_entry(hass: HomeAssistant, config_entry, async_add_entities):
     """Set up the Bouncie vehicle trackers by config_entry."""
     coordinator = hass.data[const.DOMAIN][config_entry.entry_id]
@@ -38,14 +43,15 @@ class BouncieVehicleTracker(
     ) -> None:
         """Initialize car location entity."""
         self._vehicle_info = vehicle_info
+        vehicle_name = _get_vehicle_name(self._vehicle_info)
         self._attr_has_entity_name = True
         self._attr_name = None
-        self._attr_unique_id = slugify(f'{self._vehicle_info["nickName"]} tracker')
+        self._attr_unique_id = slugify(f"{vehicle_name} tracker")
         self._attr_device_info = DeviceInfo(
             identifiers={(const.DOMAIN, self._vehicle_info["vin"])},
             manufacturer=self._vehicle_info[const.VEHICLE_MODEL_KEY]["make"],
             model=self._vehicle_info[const.VEHICLE_MODEL_KEY]["name"],
-            name=self._vehicle_info["nickName"],
+            name=vehicle_name,
             hw_version=self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"],
         )
         super().__init__(coordinator)
