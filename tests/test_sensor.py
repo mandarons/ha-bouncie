@@ -67,6 +67,7 @@ async def test_car_fuel_sensor(
     assert entry is not None
     state = hass.states.get("sensor.my_prius_car_fuel")
     assert state.state == "29"
+    assert state.attributes["device_class"] == "battery"
     state = hass.states.get("sensor.rdx_wo_mil_car_fuel")
     assert state.state == "65"
 
