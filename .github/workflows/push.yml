@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Set up Python 3.10
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - name: Cache pip dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         id: cache-dependencies
         with:
           path: ~/.cache/pip
@@ -37,10 +37,10 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Validate
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
 
       - name: HACS validation
-        uses: "hacs/action@main"
+        uses: "hacs/action@22.5.0"
         with:
           category: "integration"
           ignore: brands
@@ -51,8 +51,8 @@ jobs:
     runs-on: "ubuntu-latest"
     name: Check style formatting
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - run: python3 -m pip install black
@@ -63,13 +63,13 @@ jobs:
     name: Run tests
     steps:
       - name: Check out code from GitHub
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Setup Python 3.10
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.10"
       - name: Restore pip cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('requirements*.txt') }}
@@ -93,21 +93,21 @@ jobs:
             --cov-fail-under=100 \
             tests && rm htmlcov/.gitignore
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         if: ${{ success() }}
         with:
           name: coverage-output
           path: htmlcov
           retention-days: 1
       - name: Checkout gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         if: always()
         continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
+        uses: simple-elf/allure-report-action@v1.14
         if: always()
         with:
           allure_results: allure-results
@@ -119,19 +119,19 @@ jobs:
         run: |
           python generate_badges.py
       - name: Upload tests artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: test-output
           path: allure-history/test-results/
           retention-days: 1
       - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-output
           path: htmlcov
           retention-days: 1
       - name: Upload badges artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: badges-output
           path: badges
@@ -141,12 +141,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download test artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
         with:
           name: test-output
           path: allure-history
       - name: Checkout gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         if: always()
         continue-on-error: true
         with:
@@ -154,7 +154,7 @@ jobs:
           path: gh-pages
       - name: Publish test report to gh-pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
@@ -165,12 +165,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download coverage artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
         with:
           name: coverage-output
           path: coverage
       - name: Checkout gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         if: always()
         continue-on-error: true
         with:
@@ -178,7 +178,7 @@ jobs:
           path: gh-pages
       - name: Publish test coverage to gh-pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages
@@ -189,12 +189,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download badges artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v8
         with:
           name: badges-output
           path: badges
       - name: Checkout gh-pages
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
         if: always()
         continue-on-error: true
         with:
@@ -202,7 +202,7 @@ jobs:
           path: gh-pages
       - name: Publish badges to gh-pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_branch: gh-pages

@@ -16,7 +16,7 @@
           "code": "authorization_code",
           "redirect_uri": "redirect_uri"
         },
-        "description": "If you need help with configuration, visit https://github.com/mandarons/ha-bouncie"
+        "description": "If you need help with configuration, visit the integration repository."
       }
     }
   }
