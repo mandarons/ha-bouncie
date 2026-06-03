@@ -1,4 +1,5 @@
 """Tests for device_tracker.py."""
+from copy import deepcopy
 from datetime import timedelta
 
 from homeassistant.components.device_tracker import DOMAIN as DEVICE_TRACKER_DOMAIN
@@ -68,3 +69,20 @@ async def test_device_tracker_update(
     state = hass.states.get("device_tracker.my_prius")
     assert state.state == "not_home"
     assert state.attributes["heading"] == 235
+
+
+async def test_device_tracker_without_nickname(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
+    """Test tracker setup when vehicle nickname is missing."""
+    vehicles_response = deepcopy(const.MOCK_VEHICLES_RESPONSE)
+    vehicles_response[0].pop("nickName")
+
+    await setup_platform(hass, DEVICE_TRACKER_DOMAIN, vehicles_response)
+    entity_registry = er.async_get(hass)
+    entry = entity_registry.async_get("device_tracker.toyota_prius_2007_vin")
+
+    assert entry is not None
+    assert entry.unique_id == "toyota_prius_2007_vin_tracker"
+    state = hass.states.get("device_tracker.toyota_prius_2007_vin")
+    assert state is not None
