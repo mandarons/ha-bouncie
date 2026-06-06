@@ -11,6 +11,10 @@ on:
       - setup.cfg
       - .github/workflows/push.yml
   workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   cache-requirements-install:
     runs-on: ubuntu-latest
@@ -149,7 +153,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
           destination_dir: test-results
@@ -173,7 +177,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: coverage
           destination_dir: test-coverage
@@ -197,7 +201,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: badges
           destination_dir: badges
