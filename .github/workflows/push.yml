@@ -92,13 +92,6 @@ jobs:
             --alluredir=./allure-results \
             --cov-fail-under=100 \
             tests && rm htmlcov/.gitignore
-      - name: Upload coverage artifacts
-        uses: actions/upload-artifact@v7
-        if: ${{ success() }}
-        with:
-          name: coverage-output
-          path: htmlcov
-          retention-days: 1
       - name: Checkout gh-pages
         uses: actions/checkout@v6
         if: always()

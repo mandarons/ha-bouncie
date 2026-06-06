@@ -7,6 +7,7 @@ from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClien
 
 from custom_components.bouncie import (  # async_reload_entry,
     BouncieDataUpdateCoordinator,
+    CONFIG_SCHEMA,
     async_setup_entry,
     async_unload_entry,
 )
@@ -63,3 +64,8 @@ async def test_setup_entry_exception(
     # an error.
     with pytest.raises(ConfigEntryNotReady):
         assert await async_setup_entry(hass, config_entry)
+
+
+def test_config_schema_defined():
+    """Test that integration defines a config schema."""
+    assert CONFIG_SCHEMA is not None
