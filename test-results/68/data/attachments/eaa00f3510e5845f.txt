@@ -1,0 +1,2 @@
+INFO     homeassistant.loader:loader.py:638 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:576 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
