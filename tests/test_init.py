@@ -66,6 +66,21 @@ async def test_setup_entry_exception(
         assert await async_setup_entry(hass, config_entry)
 
 
+async def test_setup_entry_key_error_exception(
+    hass, key_error_on_get_data, aioclient_mock: AiohttpClientMocker
+):
+    """Test ConfigEntryNotReady when API raises a KeyError during entry setup."""
+    config_entry = MockConfigEntry(
+        domain=DOMAIN, data=MOCK_CONFIG_ENTRY, entry_id="test"
+    )
+
+    # In this case we are testing the condition where async_setup_entry raises
+    # ConfigEntryNotReady using the `key_error_on_get_data` fixture which simulates
+    # a KeyError (e.g. missing 'errors' key in a bad API response).
+    with pytest.raises(ConfigEntryNotReady):
+        assert await async_setup_entry(hass, config_entry)
+
+
 def test_config_schema_defined():
     """Test that integration defines a config schema."""
     assert CONFIG_SCHEMA is not None
