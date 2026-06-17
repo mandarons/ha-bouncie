@@ -36,3 +36,13 @@ def error_get_data_fixture():
         side_effect=BouncieException("fetch error"),
     ):
         yield
+
+
+@pytest.fixture(name="key_error_on_get_data")
+def key_error_get_data_fixture():
+    """Simulate KeyError when retrieving data from API (e.g. missing 'errors' key in response)."""
+    with patch(
+        "custom_components.bouncie.coordinator.AsyncRESTAPIClient.get_all_vehicles",
+        side_effect=KeyError("errors"),
+    ):
+        yield
