@@ -47,7 +47,11 @@ class BouncieDataUpdateCoordinator(DataUpdateCoordinator):
         all_vehicles = None
         try:
             all_vehicles = await self.bouncie_client.get_all_vehicles()
-        except (BouncieException, ClientConnectorError, KeyError) as error:
+        except (BouncieException, ClientConnectorError) as error:
+            raise UpdateFailed(error) from error
+        except KeyError as error:
+            # bounciepy raises KeyError when the API error response is missing the
+            # expected 'errors' key (e.g. data["errors"] fails in _handle_response).
             raise UpdateFailed(error) from error
         data["vehicles"] = all_vehicles
         return data
