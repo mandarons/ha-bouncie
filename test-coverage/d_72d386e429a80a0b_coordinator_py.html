@@ -54,8 +54,8 @@
             </div>
         </aside>
         <h2>
-            <span class="text">27 statements &nbsp;</span>
-            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">27<span class="text"> run</span></button>
+            <span class="text">29 statements &nbsp;</span>
+            <button type="button" class="run button_toggle_run" value="run" data-shortcut="r" title="Toggle lines run">29<span class="text"> run</span></button>
             <button type="button" class="mis show_mis button_toggle_mis" value="mis" data-shortcut="m" title="Toggle lines missing">0<span class="text"> missing</span></button>
             <button type="button" class="exc show_exc button_toggle_exc" value="exc" data-shortcut="x" title="Toggle lines excluded">0<span class="text"> excluded</span></button>
         </h2>
@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_device_tracker_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2026-06-06 15:55 +0000
+            created at 2026-06-17 16:15 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -131,8 +131,12 @@
     <p class="run"><span class="n"><a id="t49" href="#t49">49</a></span><span class="t">            <span class="nam">all_vehicles</span> <span class="op">=</span> <span class="key">await</span> <span class="nam">self</span><span class="op">.</span><span class="nam">bouncie_client</span><span class="op">.</span><span class="nam">get_all_vehicles</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t50" href="#t50">50</a></span><span class="t">        <span class="key">except</span> <span class="op">(</span><span class="nam">BouncieException</span><span class="op">,</span> <span class="nam">ClientConnectorError</span><span class="op">)</span> <span class="key">as</span> <span class="nam">error</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t51" href="#t51">51</a></span><span class="t">            <span class="key">raise</span> <span class="nam">UpdateFailed</span><span class="op">(</span><span class="nam">error</span><span class="op">)</span> <span class="key">from</span> <span class="nam">error</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">        <span class="nam">data</span><span class="op">[</span><span class="str">"vehicles"</span><span class="op">]</span> <span class="op">=</span> <span class="nam">all_vehicles</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">        <span class="key">return</span> <span class="nam">data</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t52" href="#t52">52</a></span><span class="t">        <span class="key">except</span> <span class="nam">KeyError</span> <span class="key">as</span> <span class="nam">error</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t53" href="#t53">53</a></span><span class="t">            <span class="com"># bounciepy raises KeyError when the API error response is missing the</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t54" href="#t54">54</a></span><span class="t">            <span class="com"># expected 'errors' key (e.g. data["errors"] fails in _handle_response).</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t55" href="#t55">55</a></span><span class="t">            <span class="key">raise</span> <span class="nam">UpdateFailed</span><span class="op">(</span><span class="nam">error</span><span class="op">)</span> <span class="key">from</span> <span class="nam">error</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t56" href="#t56">56</a></span><span class="t">        <span class="nam">data</span><span class="op">[</span><span class="str">"vehicles"</span><span class="op">]</span> <span class="op">=</span> <span class="nam">all_vehicles</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t57" href="#t57">57</a></span><span class="t">        <span class="key">return</span> <span class="nam">data</span>&nbsp;</span><span class="r"></span></p>
 </main>
 <footer>
     <div class="content">
@@ -142,7 +146,7 @@
             <a id="nextFileLink" class="nav" href="d_72d386e429a80a0b_device_tracker_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.2.4">coverage.py v7.2.4</a>,
-            created at 2026-06-06 15:55 +0000
+            created at 2026-06-17 16:15 +0000
         </p>
     </div>
 </footer>
