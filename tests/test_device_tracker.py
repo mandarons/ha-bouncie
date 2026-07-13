@@ -6,6 +6,7 @@ from homeassistant.components.device_tracker import DOMAIN as DEVICE_TRACKER_DOM
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_registry as er
 import homeassistant.util.dt as date_util
+from pytest import LogCaptureFixture
 from pytest_homeassistant_custom_component.common import async_fire_time_changed
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
@@ -13,7 +14,9 @@ from . import const, setup_platform
 
 
 async def test_device_tracker(
-    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+    hass: HomeAssistant,
+    aioclient_mock: AiohttpClientMocker,
+    caplog: LogCaptureFixture,
 ) -> None:
     """Test getting all vehicles."""
     await setup_platform(hass, DEVICE_TRACKER_DOMAIN)
@@ -35,6 +38,8 @@ async def test_device_tracker(
         state.attributes["heading"]
         == const.MOCK_VEHICLES_RESPONSE[0]["stats"]["location"]["heading"]
     )
+    assert "The deprecated alias TrackerEntity was used from bouncie" not in caplog.text
+    assert "passes a non-string value of type int as hw_version" not in caplog.text
 
 
 async def test_device_tracker_update(

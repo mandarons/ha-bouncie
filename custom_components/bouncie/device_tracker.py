@@ -1,7 +1,6 @@
 """Support for Bouncie device tracker."""
 
-from homeassistant.components.device_tracker import SourceType
-from homeassistant.components.device_tracker.config_entry import TrackerEntity
+from homeassistant.components.device_tracker import SourceType, TrackerEntity
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
@@ -52,7 +51,7 @@ class BouncieVehicleTracker(
             manufacturer=self._vehicle_info[const.VEHICLE_MODEL_KEY]["make"],
             model=self._vehicle_info[const.VEHICLE_MODEL_KEY]["name"],
             name=vehicle_name,
-            hw_version=self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"],
+            hw_version=str(self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"]),
         )
         super().__init__(coordinator)
 

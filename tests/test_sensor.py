@@ -5,6 +5,7 @@ from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_registry as er
 import homeassistant.util.dt as date_util
+from pytest import LogCaptureFixture
 from pytest_homeassistant_custom_component.common import async_fire_time_changed
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
@@ -12,7 +13,9 @@ from . import const, setup_platform
 
 
 async def test_car_info_sensor(
-    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+    hass: HomeAssistant,
+    aioclient_mock: AiohttpClientMocker,
+    caplog: LogCaptureFixture,
 ) -> None:
     """Test getting all vehicles."""
     await setup_platform(hass, SENSOR_DOMAIN)
@@ -27,6 +30,7 @@ async def test_car_info_sensor(
     )
     assert state.attributes["vin"] == const.MOCK_VEHICLES_RESPONSE[0]["vin"]
     assert state.attributes["imei"] == const.MOCK_VEHICLES_RESPONSE[0]["imei"]
+    assert "passes a non-string value of type int as hw_version" not in caplog.text
 
 
 async def test_car_odometer_sensor(
