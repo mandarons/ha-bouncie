@@ -188,7 +188,7 @@ class BouncieSensor(CoordinatorEntity[BouncieDataUpdateCoordinator], SensorEntit
             manufacturer=self._vehicle_info[const.VEHICLE_MODEL_KEY]["make"],
             model=self._vehicle_info[const.VEHICLE_MODEL_KEY]["name"],
             name=self._vehicle_info["nickName"],
-            hw_version=self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"],
+            hw_version=str(self._vehicle_info[const.VEHICLE_MODEL_KEY]["year"]),
         )
         super().__init__(coordinator)
 
