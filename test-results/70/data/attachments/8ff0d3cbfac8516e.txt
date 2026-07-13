@@ -1,0 +1,29 @@
+INFO     homeassistant.loader:loader.py:638 Loaded bouncie from custom_components.bouncie
+WARNING  homeassistant.loader:loader.py:576 We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO     homeassistant.setup:setup.py:257 Setting up bouncie
+INFO     homeassistant.setup:setup.py:308 Setup of domain bouncie took 0.0 seconds
+DEBUG    custom_components.bouncie.const:update_coordinator.py:365 Finished fetching bouncie data in 0.000 seconds (success: True)
+INFO     homeassistant.loader:loader.py:638 Loaded device_tracker from homeassistant.components.device_tracker
+INFO     homeassistant.loader:loader.py:638 Loaded zone from homeassistant.components.zone
+DEBUG    homeassistant.setup:setup.py:137 Dependency device_tracker will wait for dependencies ['zone']
+INFO     homeassistant.setup:setup.py:257 Setting up zone
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event state_changed[L]: entity_id=zone.home, old_state=None, new_state=<state zone.home=0; latitude=32.87336, longitude=-117.22743, radius=100, passive=False, persons=[], editable=True, icon=mdi:home, friendly_name=test home @ 2026-07-13T11:01:18.472182-07:00>>
+INFO     homeassistant.setup:setup.py:308 Setup of domain zone took 0.0 seconds
+INFO     homeassistant.setup:setup.py:257 Setting up device_tracker
+INFO     homeassistant.setup:setup.py:308 Setup of domain device_tracker took 0.0 seconds
+DEBUG    homeassistant.helpers.translation:translation.py:217 Cache miss for en: device_tracker
+DEBUG    homeassistant.helpers.translation:translation.py:217 Cache miss for en: bouncie
+INFO     homeassistant.components.device_tracker:entity_platform.py:339 Setting up device_tracker.bouncie
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event device_registry_updated[L]: action=create, device_id=c3604a30c089caa0eb8f3bc0bb733289>
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new device_tracker.bouncie entity: device_tracker.my_broken_prius
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=device_tracker.my_broken_prius>
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event state_changed[L]: entity_id=device_tracker.my_broken_prius, old_state=None, new_state=<state device_tracker.my_broken_prius=not_home; source_type=gps, latitude=40.6411124, longitude=-73.9960607, gps_accuracy=0, heading=146, speed=0, attribution=Data provided by Bouncie, friendly_name=my broken prius @ 2026-07-13T11:01:18.483926-07:00>>
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event device_registry_updated[L]: action=create, device_id=f69b68fc5956ac450db03eb7d0220ba8>
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new device_tracker.bouncie entity: device_tracker.rdx_wo_mil
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=device_tracker.rdx_wo_mil>
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event state_changed[L]: entity_id=device_tracker.rdx_wo_mil, old_state=None, new_state=<state device_tracker.rdx_wo_mil=not_home; source_type=gps, latitude=41.86062, longitude=-87.61694, gps_accuracy=0, heading=1, speed=0, attribution=Data provided by Bouncie, friendly_name=rdx wo mil @ 2026-07-13T11:01:18.486152-07:00>>
+DEBUG    custom_components.bouncie.const:update_coordinator.py:365 Finished fetching bouncie data in 0.000 seconds (success: True)
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event device_registry_updated[L]: action=create, device_id=aac216337c995f809b17823b53baa1f4>
+INFO     homeassistant.helpers.entity_registry:entity_registry.py:688 Registered new device_tracker.bouncie entity: device_tracker.my_prius
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=device_tracker.my_prius>
+DEBUG    homeassistant.core:core.py:1049 Bus:Handling <Event state_changed[L]: entity_id=device_tracker.my_prius, old_state=None, new_state=<state device_tracker.my_prius=not_home; source_type=gps, latitude=40.6411124, longitude=-73.9960607, gps_accuracy=0, heading=146, speed=123.2446465, attribution=Data provided by Bouncie, friendly_name=my prius @ 2026-07-13T11:01:18.488894-07:00>>

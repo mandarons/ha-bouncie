@@ -1,0 +1,2 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
