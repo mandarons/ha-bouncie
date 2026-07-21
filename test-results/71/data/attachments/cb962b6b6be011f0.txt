@@ -1,0 +1,69 @@
+INFO:homeassistant.loader:Loaded bouncie from custom_components.bouncie
+WARNING:homeassistant.loader:We found a custom integration bouncie which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+INFO:homeassistant.setup:Setting up bouncie
+INFO:homeassistant.setup:Setup of domain bouncie took 0.0 seconds
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.000 seconds (success: True)
+INFO:homeassistant.loader:Loaded sensor from homeassistant.components.sensor
+INFO:homeassistant.setup:Setting up sensor
+INFO:homeassistant.setup:Setup of domain sensor took 0.0 seconds
+DEBUG:homeassistant.helpers.translation:Cache miss for en: sensor
+DEBUG:homeassistant.helpers.translation:Cache miss for en: bouncie
+INFO:homeassistant.components.sensor:Setting up sensor.bouncie
+DEBUG:custom_components.bouncie.const:Finished fetching bouncie data in 0.000 seconds (success: True)
+DEBUG:homeassistant.core:Bus:Handling <Event device_registry_updated[L]: action=create, device_id=1b841ae263ad9c427ea7417a48415ba5>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_last_update
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_last_update>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_info
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_info>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_odometer
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_odometer>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_address
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_address>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_fuel
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_fuel>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_speed
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_speed>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_mil
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_mil>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_dtc_count
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_dtc_count>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_prius_car_battery
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_prius_car_battery>
+DEBUG:homeassistant.core:Bus:Handling <Event device_registry_updated[L]: action=create, device_id=c1c87b2792c2efdb1eb52bf474dced1d>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_last_update
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_last_update>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_info
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_info>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_odometer
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_odometer>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_address
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_address>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_fuel
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_fuel>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_speed
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_speed>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_mil
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_mil>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_dtc_count
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_dtc_count>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.my_broken_prius_car_battery
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.my_broken_prius_car_battery>
+DEBUG:homeassistant.core:Bus:Handling <Event device_registry_updated[L]: action=create, device_id=6e2b736bebad767b1ce384be040a3e26>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_last_update
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_last_update>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_info
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_info>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_odometer
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_odometer>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_address
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_address>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_fuel
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_fuel>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_speed
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_speed>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_mil
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_mil>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_dtc_count
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_dtc_count>
+INFO:homeassistant.helpers.entity_registry:Registered new sensor.bouncie entity: sensor.rdx_wo_mil_car_battery
+DEBUG:homeassistant.core:Bus:Handling <Event entity_registry_updated[L]: action=create, entity_id=sensor.rdx_wo_mil_car_battery>
